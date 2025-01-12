@@ -1,3 +1,28 @@
 body {
-	background-color: powderblue;
+	width: 100%;
+	margin: 0px;
+}
+
+
+#footer-wrapper {
+	width: 100%;
+	background-image: linear-gradient(rgb(0, 255, 0), rgb(50, 162, 50));
+}
+
+
+#footer-spacer {
+	padding: 20px 100px 30px 100px
+}
+
+
+
+#footer-text{
+	width: 100%;
+}
+
+
+.ui-image-full-width {
+	width: 100%;
+	background-image: linear-gradient(black, rgb(38, 0, 133));
+	line-height: 0%;
 }
