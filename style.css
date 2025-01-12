@@ -4,6 +4,23 @@ body {
 }
 
 
+p {
+	margin: 0px;
+}
+
+
+@font-face {
+	font-family: "clear-sans";
+	src: url("./fonts/ClearSans-Medium.ttf");
+}
+
+
+@font-face {
+	font-family: "papyrus";
+	src: url("./fonts/papyrus.ttf");
+}
+
+
 #footer-wrapper {
 	width: 100%;
 	background-image: linear-gradient(rgb(0, 255, 0), rgb(50, 162, 50));
@@ -15,9 +32,17 @@ body {
 }
 
 
-
-#footer-text{
+#footer-text {
 	width: 100%;
+	line-height: 25px;
+	color: white;
+	text-align: center;
+	font-family: "Comic Sans MS", "Comic Sans", Arial, Helvetica, sans-serif;
+}
+
+
+#footer-emojis {
+	font-family: "papyrus", "Comic Sans", Arial, Helvetica, sans-serif;
 }
 
 
