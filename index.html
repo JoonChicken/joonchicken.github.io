@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 	  <link rel="stylesheet", href="style.css">
-    <script src="main.js"></script>
+    <script src="main.js" async></script>
 	  <link rel="icon", type="image/x-icon", href="/images/favicon.ico" />
   </head>
 
@@ -59,19 +59,6 @@
         <div id="footer-text">
           <p id="footer-emojis"></p>
           <p id="footer-copyright"></p>
-          <script>
-            const date = new Date()
-            let month = date.getMonth()
-            let year = date.getFullYear()
-            let emojiString = ""
-            if (month == 11) {
-              emojiString = "🎅"
-            } else {
-              emojiString = "❤️"
-            }
-            document.getElementById("footer-emojis").innerHTML = emojiString + " Graphic design is my passion " + emojiString
-            document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon Heo" 
-          </script>
           </div>
         </div>
       </div>
