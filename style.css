@@ -43,13 +43,19 @@ img {
 	padding: 50px 15% 50px 17%
 }
 
-#menubar-background {
-	background-color: rgb(0, 230, 50);
+.panel-background, .menu-panel {
+	padding: 20px;
+	background-color: rgb(198, 214, 208);
 	border-style: solid;
 	border-color: black;
+	box-shadow: 5px 0px rgb(0, 230, 50), 0px 5px rgb(0, 230, 50);
+}
+
+.menu-panel {
+	background-color: rgb(0, 230, 50);
 	margin-top: 50px;
 	padding: 15px 15px 15px 15px;
-	box-shadow: 5px 5px rgb(198, 214, 208);
+	box-shadow: 5px 0px rgb(198, 214, 208), 0px 5px rgb(198, 214, 208);
 }
 
 #logo-button-flex-container {
