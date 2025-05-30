@@ -1,3 +1,7 @@
+/* Important stuff */
+const window_width = window.innerWidth;
+
+
 /* Date-specific footer */
 const date = new Date()
 let month = date.getMonth()
@@ -12,7 +16,15 @@ document.getElementById("footer-emojis").innerHTML = emojiString + " Graphic des
 document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon Heo" 
 
 
-/* Top menu resizing based on viewport width */
+// resize with these functions
+window.addEventListener('resize', () => {
+    menuResize();
+    backgroundResize();
+});
+
+
+
+// Top menu resizing based on viewport width
 const menu_width_threshold = 900;
 const content_size_threshold = 660;
 const window_min_size = 420;
@@ -22,7 +34,7 @@ const invlerp = (x, y, a) => clamp((a - x) / (y - x));
 menuResize();
 
 function menuResize() {
-    let window_width = window.innerWidth;
+    /* window width defined above */
     let contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
     let minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
 
@@ -52,7 +64,30 @@ function menuResize() {
         document.getElementById("menu-buttons-flex-container").style.gap = "30px";
     }
 }
+    
 
-window.addEventListener('resize', () => {
-    menuResize();
-});
+/* Drawing background on canvas */
+function draw() {
+    const canvas = document.getElementById("starry-canvas");
+    if (canvas.getContext) {
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200 0 0)";
+        ctx.fillRect(0, 0, 1, 50);
+        ctx.fillStyle = "rgb(200 200 200)";
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    }
+}
+
+/* Resizing background canvas with viewport width */
+function backgroundResize() {
+    const canvas_wrapper = document.getElementById("starry-wrapper");
+    const canvas = document.getElementById("starry-canvas");
+    const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementById("body-wrapper").offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
+    canvas_wrapper.style.height = h + "px";
+    canvas.width = canvas_wrapper.innerWidth;
+    canvas.height = h;
+
+    draw();
+}
+backgroundResize();
