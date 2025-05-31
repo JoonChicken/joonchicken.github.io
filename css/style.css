@@ -1,7 +1,7 @@
 body {
 	width: 100%;
 	margin: 0px;
-	background-color: black;
+	background-color: transparent;
 }
 
 p {
@@ -18,17 +18,17 @@ img {
 
 @font-face {
 	font-family: "clear-sans";
-	src: url("./fonts/ClearSans-Medium.ttf");
+	src: url("/fonts/ClearSans-Medium.ttf");
 }
 
 @font-face {
 	font-family: "heavitas";
-	src: url("./fonts/Heavitas.ttf");
+	src: url("/fonts/Heavitas.ttf");
 }
 
 @font-face {
 	font-family: "papyrus";
-	src: url("./fonts/papyrus.ttf");
+	src: url("/fonts/papyrus.ttf");
 }
 
 .flex-container {
@@ -37,10 +37,56 @@ img {
 	justify-content: space-between;
 }
 
+
+/*========== Body Spacer ===========*/
+
+.body-spacer {
+	padding: 0 20% 0 20%;
+}
+
+
+
+
+/*==========  Starry Background  ==========*/
+
+#starry-wrapper, #starry-canvas {
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+}
+
+#starry-canvas {
+	background-image: linear-gradient(black, blue);
+	height: 100%;
+    image-rendering: pixelated;
+}
+
+
+
+/*========== Interactive Menu ==============*/
+
+.panel {
+	background-color: #0005;
+	border-style: none;
+	border-color: aliceblue;
+	border-width: 5px;
+}
+
+#interactives-control {
+	width: 80px;
+	height: 100px;
+	position: fixed;
+	bottom: 30%;
+	left: 0;
+}
+
+
+
 /*==========  Menu  ==========*/
 
 #menubar-spacer {
-	padding: 50px 15% 50px 17%
+	padding: 50px 15% 50px 17%;
+	background-color: transparent;
 }
 
 .panel-background, .menu-panel {
@@ -53,7 +99,7 @@ img {
 }
 
 .menu-panel {
-	background-color: rgb(0, 230, 50);
+	background-color: rgb(0, 195, 40);
 	margin-top: 50px;
 	padding: 15px 15px 15px 15px;
 	box-shadow: 5px 0px rgb(198, 214, 208), 0px 5px rgb(198, 214, 208);
@@ -79,7 +125,7 @@ img {
 
 #button-home-image:hover {
     cursor: default;
-    transform: rotate(-12deg);
+    transform: rotate(-8deg);
     transition: all 0.08s ease-out 0.04s;
 }
 
@@ -132,12 +178,12 @@ img {
 }
 
 
-/*==========  Footer  ==========*/
 
+/*==========  Footer  ==========*/
 
 #footer-wrapper {
 	width: 100%;
-	background-image: url("./images/grass_transition.svg");
+	background-image: url("/images/grass_transition.svg");
 	background-size: 800px auto;
 	background-position: top center;
 	background-repeat: repeat-x;
@@ -162,6 +208,8 @@ img {
 
 .ui-image-full-width {
 	width: 100%;
-	background-image: linear-gradient(black, rgb(24, 0, 161));
+	/*background-image: linear-gradient(black, rgb(24, 0, 161));*/
 	line-height: 0%;
 }
+
+
