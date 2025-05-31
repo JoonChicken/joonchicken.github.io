@@ -2,11 +2,11 @@ import {createNoise2D} from "https://cdn.skypack.dev/simplex-noise@4.0.3";
 const noise2D = createNoise2D();
 const canvas = document.getElementById("starry-canvas");
 const ctx = canvas.getContext('2d');
-const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-const data = imageData.data;
+var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+var data = imageData.data;
 var center_x = canvas.width / 2;
 var center_y = canvas.height / 2;
-
+const back_scale = 2;
 
 var window_width = window.innerWidth;
 
@@ -26,20 +26,23 @@ document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon He
 
 
 // resize with these functions
-window.addEventListener('resize', () => {
+window.onresize = (event) => {
     resizer();
-});
+};
 
-window.onload = function () {
+window.onload = () => {
     resizer();
 }
 
 function resizer() {
+    menuResize();
+    backgroundResize();
+    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    data = imageData.data;
     center_x = canvas.width / 2;
     center_y = canvas.height / 2;
     window_width = window.innerWidth;
-    menuResize();
-    backgroundResize();
+    draw();
 }
 
 
@@ -83,28 +86,28 @@ function menuResize() {
         document.getElementById("menu-buttons-flex-container").style.gap = "30px";
     }
 }
-menuResize();
     
 
 // Drawing background on canvas
 function draw() {
     var col = 0;
-    var threshold = 0.9;
+    var scale = 0.1;
+    var threshold = 0.5;
     for (var i = 0; i < canvas.width; i++) { // image array stores rgba
         for (var j = 0; j < canvas.height; j++) {
-            col = noise2D(i - center_x, j - center_y);
+            col = (noise2D((i) * scale, (j) * scale) + noise2D((i + Math.random() * 100) * scale * 2, (j + Math.random() * 100) * scale * 2)) * 0.5;
+            col *= col;
             if (col > threshold) {
-                data[(i + j * canvas.height) * 4] = col * 255;
-                data[(i + j * canvas.height) * 4 + 1] = col * 255;
-                data[(i + j * canvas.height) * 4 + 2] = col * 255;
-                data[(i + j * canvas.height) * 4 + 3] = 255;
+                data[(i + j * canvas.width) * 4] = col * 255;
+                data[(i + j * canvas.width) * 4 + 1] = col * 255;
+                data[(i + j * canvas.width) * 4 + 2] = col * 255;
+                data[(i + j * canvas.width) * 4 + 3] = lerp(100, invlerp(canvas.height, 0, j) * 255, col);
             } else {
-                data[(i + j * canvas.height) * 4 + 3] = 0;
+                data[(i + j * canvas.width) * 4 + 3] = 0;
             }
         }
     }
     ctx.putImageData(imageData, 0, 0);
-    console.log(canvas.width + "   " + canvas.height);
 }
 
 // Resizing background canvas with viewport width
@@ -114,9 +117,11 @@ function backgroundResize() {
     const w = window_width;
     canvas_wrapper.style.height = h + "px";
     canvas_wrapper.style.width = w + "px";
-    canvas.width = w;
-    canvas.height = h;
-
-    draw();
+    canvas.style.width = w;
+    canvas.style.height = h;
+    canvas.width = w / back_scale;
+    canvas.height = h / back_scale;
 }
-backgroundResize();
+
+
+resizer();

@@ -58,6 +58,7 @@ img {
 #starry-canvas {
 	background-image: linear-gradient(black, blue);
 	height: 100%;
+    image-rendering: pixelated;
 }
 
 
