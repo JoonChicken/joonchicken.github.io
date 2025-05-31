@@ -1,8 +1,17 @@
-/* Important stuff */
-const window_width = window.innerWidth;
+import {createNoise2D} from "https://cdn.skypack.dev/simplex-noise@4.0.3";
+const noise2D = createNoise2D();
+const canvas = document.getElementById("starry-canvas");
+const ctx = canvas.getContext('2d');
+const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+const data = imageData.data;
+var center_x = canvas.width / 2;
+var center_y = canvas.height / 2;
 
 
-/* Date-specific footer */
+var window_width = window.innerWidth;
+
+
+// Date-specific footer
 const date = new Date()
 let month = date.getMonth()
 let year = date.getFullYear()
@@ -18,9 +27,20 @@ document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon He
 
 // resize with these functions
 window.addEventListener('resize', () => {
+    resizer();
+});
+
+window.onload = function () {
+    resizer();
+}
+
+function resizer() {
+    center_x = canvas.width / 2;
+    center_y = canvas.height / 2;
+    window_width = window.innerWidth;
     menuResize();
     backgroundResize();
-});
+}
 
 
 
@@ -31,10 +51,9 @@ const window_min_size = 420;
 const lerp = (x, y, a) => x * (1 - a) + y * a;
 const clamp = (a, min = 0, max = 1) => Math.min(max, Math.max(min, a));
 const invlerp = (x, y, a) => clamp((a - x) / (y - x));
-menuResize();
 
 function menuResize() {
-    /* window width defined above */
+    // window width defined above
     let contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
     let minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
 
@@ -57,35 +76,45 @@ function menuResize() {
         document.getElementById("title-text-bottom-container").style.marginLeft = "-230px";
     }
 
-    if (window_width < menu_width_threshold) {
+    if (window_width < window_min_size) {
         let menuGap = lerp(5, 30, minMenuRatio);
         document.getElementById("menu-buttons-flex-container").style.gap = menuGap + "px";
     } else {
         document.getElementById("menu-buttons-flex-container").style.gap = "30px";
     }
 }
+menuResize();
     
 
-/* Drawing background on canvas */
+// Drawing background on canvas
 function draw() {
-    const canvas = document.getElementById("starry-canvas");
-    if (canvas.getContext) {
-        const ctx = canvas.getContext("2d");
-
-        ctx.fillStyle = "rgb(200 0 0)";
-        ctx.fillRect(0, 0, 1, 50);
-        ctx.fillStyle = "rgb(200 200 200)";
-        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    var col = 0;
+    var threshold = 0.9;
+    for (var i = 0; i < canvas.width; i++) { // image array stores rgba
+        for (var j = 0; j < canvas.height; j++) {
+            col = noise2D(i - center_x, j - center_y);
+            if (col > threshold) {
+                data[(i + j * canvas.height) * 4] = col * 255;
+                data[(i + j * canvas.height) * 4 + 1] = col * 255;
+                data[(i + j * canvas.height) * 4 + 2] = col * 255;
+                data[(i + j * canvas.height) * 4 + 3] = 255;
+            } else {
+                data[(i + j * canvas.height) * 4 + 3] = 0;
+            }
+        }
     }
+    ctx.putImageData(imageData, 0, 0);
+    console.log(canvas.width + "   " + canvas.height);
 }
 
-/* Resizing background canvas with viewport width */
+// Resizing background canvas with viewport width
 function backgroundResize() {
     const canvas_wrapper = document.getElementById("starry-wrapper");
-    const canvas = document.getElementById("starry-canvas");
     const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementById("body-wrapper").offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
+    const w = window_width;
     canvas_wrapper.style.height = h + "px";
-    canvas.width = canvas_wrapper.innerWidth;
+    canvas_wrapper.style.width = w + "px";
+    canvas.width = w;
     canvas.height = h;
 
     draw();
