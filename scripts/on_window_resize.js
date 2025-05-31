@@ -35,13 +35,9 @@ window.onload = () => {
 }
 
 function resizer() {
+    window_width = window.innerWidth;
     menuResize();
     backgroundResize();
-    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    data = imageData.data;
-    center_x = canvas.width / 2;
-    center_y = canvas.height / 2;
-    window_width = window.innerWidth;
     draw();
 }
 
@@ -101,7 +97,7 @@ function draw() {
                 data[(i + j * canvas.width) * 4] = col * 255;
                 data[(i + j * canvas.width) * 4 + 1] = col * 255;
                 data[(i + j * canvas.width) * 4 + 2] = col * 255;
-                data[(i + j * canvas.width) * 4 + 3] = lerp(100, invlerp(canvas.height, 0, j) * 255, col);
+                data[(i + j * canvas.width) * 4 + 3] = lerp(100, (invlerp(canvas.height, 0, j) * 0.8 + 0.2) * 255, col);
             } else {
                 data[(i + j * canvas.width) * 4 + 3] = 0;
             }
@@ -121,6 +117,11 @@ function backgroundResize() {
     canvas.style.height = h;
     canvas.width = w / back_scale;
     canvas.height = h / back_scale;
+    center_x = canvas.width / 2;
+    center_y = canvas.height / 2;
+
+    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    data = imageData.data;
 }
 
 
