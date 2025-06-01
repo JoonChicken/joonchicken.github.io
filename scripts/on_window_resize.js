@@ -4,8 +4,6 @@ const canvas = document.getElementById("starry-canvas");
 const ctx = canvas.getContext('2d');
 var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 var data = imageData.data;
-var center_x = canvas.width / 2;
-var center_y = canvas.height / 2;
 const back_scale = 2;
 
 var window_width = window.innerWidth;
@@ -13,9 +11,9 @@ var window_width = window.innerWidth;
 
 // Date-specific footer
 const date = new Date()
-let month = date.getMonth()
-let year = date.getFullYear()
-let emojiString = ""
+var month = date.getMonth()
+var year = date.getFullYear()
+var emojiString = ""
 if (month == 11) {
     emojiString = "🎅"
 } else {
@@ -25,22 +23,20 @@ document.getElementById("footer-emojis").innerHTML = emojiString + " Graphic des
 document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon Heo" 
 
 
-// resize with these functions
-window.onresize = (event) => {
-    resizer();
-};
+// ====================  When resizing window:  ===========================
+//           * Adjust background canvas width and redraw *
+//                     * Adjust menu bar width *
 
-window.onload = () => {
-    resizer();
-}
+window.onresize = onresize;
 
-function resizer() {
+window.onload = onresize;
+
+onresize = () => {
     window_width = window.innerWidth;
     menuResize();
     backgroundResize();
     draw();
 }
-
 
 
 // Top menu resizing based on viewport width
@@ -53,21 +49,21 @@ const invlerp = (x, y, a) => clamp((a - x) / (y - x));
 
 function menuResize() {
     // window width defined above
-    let contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
-    let minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
+    var contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
+    var minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
 
     if (window_width < content_size_threshold) {
         document.getElementById("menubar-spacer").style.padding = "50px 4% 50px 8%";
     } else if (window_width < menu_width_threshold) {
-        let rightPad = lerp(4, 15, contentMenuRatio);
-        let leftPad = lerp(8, 17, contentMenuRatio);
+        var rightPad = lerp(4, 15, contentMenuRatio);
+        var leftPad = lerp(8, 17, contentMenuRatio);
         document.getElementById("menubar-spacer").style.padding = "50px " + rightPad + "% 50px " + leftPad + "%";
     } else {
         document.getElementById("menubar-spacer").style.padding = "50px 15% 50px 17%";
     }
 
     if (window_width < menu_width_threshold) {
-        let marginModifier = lerp(0, 5, contentMenuRatio);
+        var marginModifier = lerp(0, 5, contentMenuRatio);
         document.getElementById("title-text-top-container").style.marginLeft = -5 + marginModifier + "px";
         document.getElementById("title-text-bottom-container").style.marginLeft = -235 + marginModifier + "px";
     } else {
@@ -76,13 +72,30 @@ function menuResize() {
     }
 
     if (window_width < window_min_size) {
-        let menuGap = lerp(5, 30, minMenuRatio);
+        var menuGap = lerp(5, 30, minMenuRatio);
         document.getElementById("menu-buttons-flex-container").style.gap = menuGap + "px";
     } else {
         document.getElementById("menu-buttons-flex-container").style.gap = "30px";
     }
 }
     
+
+// Resizing background canvas with viewport width
+function backgroundResize() {
+    const canvas_wrapper = document.getElementById("starry-wrapper");
+    const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementsByClassName("body-wrapper")[0].offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
+    const w = window_width;
+    canvas_wrapper.style.height = h + "px";
+    canvas_wrapper.style.width = w + "px";
+    canvas.style.width = w;
+    canvas.style.height = h;
+    canvas.width = w / back_scale;
+    canvas.height = h / back_scale;
+
+    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    data = imageData.data;
+}
+
 
 // Drawing background on canvas
 function draw() {
@@ -106,23 +119,35 @@ function draw() {
     ctx.putImageData(imageData, 0, 0);
 }
 
-// Resizing background canvas with viewport width
-function backgroundResize() {
-    const canvas_wrapper = document.getElementById("starry-wrapper");
-    const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementById("body-wrapper").offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
-    const w = window_width;
-    canvas_wrapper.style.height = h + "px";
-    canvas_wrapper.style.width = w + "px";
-    canvas.style.width = w;
-    canvas.style.height = h;
-    canvas.width = w / back_scale;
-    canvas.height = h / back_scale;
-    center_x = canvas.width / 2;
-    center_y = canvas.height / 2;
 
-    imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    data = imageData.data;
+onresize();
+
+
+
+// ==============  Interactive Controls  =========================
+
+const control_wrapper = $("#control-wrapper");
+const control_hover = $("#control-hover")[0];
+const control_panel = $("#interactives-control")[0];
+
+var emerged = false;
+const emerge_speed = 200;
+const emerge = () => {
+    emerged = true;
+    control_wrapper.animate({left: 95}, emerge_speed);
+}
+const collapse = () => {
+    emerged = false;
+    control_wrapper.animate({left: "0"}, emerge_speed);
 }
 
 
-resizer();
+control_hover.onmouseenter = control_panel.onmouseenter = emerge;
+control_wrapper[0].onmouseleave = collapse;
+control_hover.onmousedown = () => {
+    if (emerged) {
+        collapse();
+    } else {
+        emerge();
+    }
+}
