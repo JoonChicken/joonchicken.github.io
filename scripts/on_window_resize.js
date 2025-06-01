@@ -144,7 +144,7 @@ const collapse = () => {
 
 control_hover.onmouseenter = control_panel.onmouseenter = emerge;
 control_wrapper[0].onmouseleave = collapse;
-control_hover.onmousedown = () => {
+control_hover.ontouchstart = () => {
     if (emerged) {
         collapse();
     } else {
