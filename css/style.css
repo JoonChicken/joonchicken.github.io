@@ -26,6 +26,11 @@ img {
 	src: url("/fonts/papyrus.ttf");
 }
 
+@font-face {
+	font-family: "windows";
+	src: url("/fonts/Windows\ Regular.ttf");
+}
+
 .flex-container {
 	display: flex;
 	flex-wrap: nowrap;
@@ -223,9 +228,10 @@ img {
 
 .content-panel-header {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	cursor: default;
-	font-family: 'Courier New', Courier, monospace;
+	font-family: "windows", Arial, Helvetica, sans-serif;
 	color: white;
 	margin: 0;
 	padding: 3px;
@@ -239,7 +245,7 @@ img {
 	color: #000;
 	font-size: small;
 	text-align: center;
-	line-height: 18px;
+	line-height: 15px;
 	width: 18px;
 	height: 15px;
 	background-color: rgb(198, 214, 208);
@@ -247,6 +253,14 @@ img {
 	border-top-color: rgb(241, 244, 243);
 	border-bottom-color: rgb(101, 110, 106);
 	border-right-color: rgb(101, 110, 106);
+}
+
+.panel-header-x:active:hover {
+	border-style: outset;
+	border-left-color: rgb(101, 110, 106);
+	border-top-color: rgb(101, 110, 106);
+	border-bottom-color: rgb(241, 244, 243);
+	border-right-color: rgb(241, 244, 243);
 }
 
 .content-panel-body {
