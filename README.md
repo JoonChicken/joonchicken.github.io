@@ -1,3 +1,3 @@
 # joonchicken.github.io
 
-[joonchicken.github.io](https://www.joonchicken.github.io)
+[https://joonchicken.github.io/](https://joonchicken.github.io/)
