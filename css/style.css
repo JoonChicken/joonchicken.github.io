@@ -203,7 +203,8 @@ img {
 }
 
 .content-panel, .content-panel-inner, .content-panel-body, .panel-header-x {
-  	padding: 0;
+	box-sizing: border-box;
+	padding: 0;
 	border-width: 2px;
 	border-style: outset;
 	border-color: rgb(198, 214, 208);
@@ -215,7 +216,6 @@ img {
 	border-top-color: rgb(241, 244, 243);
 	border-left-color: rgb(241, 244, 243);
 	box-shadow: 1px 1px 5px #000d;
-	padding-bottom: 6px;
 }
 
 .content-panel-inner {
@@ -234,11 +234,22 @@ img {
 	font-family: "windows", Arial, Helvetica, sans-serif;
 	color: white;
 	margin: 0;
-	padding: 3px;
+	padding: 1px 3px 1px 3px;
 	background-image: linear-gradient(.25turn, rgb(0, 126, 40), 60%, rgb(0, 242, 93));
 	border-width: 0px 0px 3px 0px;
 	border-style: solid;
 	border-color: rgb(198, 214, 208);
+}
+
+.panel-header-info {
+	display:flex;
+	align-items:center;
+	flex-direction: row;
+	justify-content: left;
+}
+
+.panel-icon {
+	margin: -5px 4px -5px 1px;
 }
 
 .panel-header-x {
@@ -256,7 +267,6 @@ img {
 }
 
 .panel-header-x:active:hover {
-	border-style: outset;
 	border-left-color: rgb(101, 110, 106);
 	border-top-color: rgb(101, 110, 106);
 	border-bottom-color: rgb(241, 244, 243);
