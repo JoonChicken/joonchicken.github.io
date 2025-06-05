@@ -6,7 +6,7 @@ var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 var data = imageData.data;
 const back_scale = 2;
 
-var window_width = window.innerWidth;
+var window_width = document.body.clientWidth;
 
 
 // ====================  When resizing window:  ===========================
@@ -18,7 +18,7 @@ window.onresize = onresize;
 window.onload = onresize;
 
 onresize = () => {
-    window_width = window.innerWidth;
+    window_width = document.body.clientWidth;
     menuResize();
     backgroundResize();
     draw();
