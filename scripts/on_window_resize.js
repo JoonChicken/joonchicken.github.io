@@ -9,20 +9,6 @@ const back_scale = 2;
 var window_width = window.innerWidth;
 
 
-// Date-specific footer
-const date = new Date()
-var month = date.getMonth()
-var year = date.getFullYear()
-var emojiString = ""
-if (month == 11) {
-    emojiString = "🎅"
-} else {
-    emojiString = "❤️"
-}
-document.getElementById("footer-emojis").innerHTML = emojiString + " Graphic design is my passion " + emojiString
-document.getElementById("footer-copyright").innerHTML = "© " + year + " Joon Heo" 
-
-
 // ====================  When resizing window:  ===========================
 //           * Adjust background canvas width and redraw *
 //                     * Adjust menu bar width *
