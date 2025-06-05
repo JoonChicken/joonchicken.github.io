@@ -202,8 +202,11 @@ img {
 	padding: 0 15% 0 15%;
 }
 
-.content-panel, .content-panel-inner, .content-panel-body, .panel-header-x {
+.content-panel, .content-panel-inner, .content-panel-body {
 	box-sizing: border-box;
+}
+
+.content-panel, .content-panel-inner, .content-panel-body, .panel-header-x {
 	padding: 0;
 	border-width: 2px;
 	border-style: outset;
