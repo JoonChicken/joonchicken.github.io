@@ -4,7 +4,6 @@ $(".content-panel-header").disableSelection();
 $(".panel-header-x").disableSelection();
 
 const content_panels = document.getElementsByClassName("content-panel");
-
 for (var i = 0; i < content_panels.length; i++) {
     content_panels[i].style.width = "" + content_panels[i].clientWidth + "px";
     content_panels[i].style.height = "" + content_panels[i].clientHeight + "px";
@@ -12,3 +11,7 @@ for (var i = 0; i < content_panels.length; i++) {
 
 $(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x"});
 
+
+$(".panel-header-x").on("click", function() {
+    $(this).closest(".content-panel").hide();
+});
