@@ -46,7 +46,6 @@ img {
 
 
 
-
 /*==========  Starry Background  ==========*/
 
 #starry-wrapper, #starry-canvas {
@@ -198,7 +197,7 @@ img {
 
 /*========== Body ============*/
 
-.body-wrapper {
+#body-wrapper {
 	padding: 0 15% 0 15%;
 }
 

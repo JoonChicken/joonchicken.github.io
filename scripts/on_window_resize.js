@@ -34,6 +34,8 @@ const clamp = (a, min = 0, max = 1) => Math.min(max, Math.max(min, a));
 const invlerp = (x, y, a) => clamp((a - x) / (y - x));
 
 function menuResize() {
+    if (document.getElementById("menubar-spacer") == null) return;
+
     // window width defined above
     var contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
     var minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
@@ -69,7 +71,7 @@ function menuResize() {
 // Resizing background canvas with viewport width
 function backgroundResize() {
     const canvas_wrapper = document.getElementById("starry-wrapper");
-    const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementsByClassName("body-wrapper")[0].offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
+    const h = document.getElementById("menubar-wrapper").offsetHeight + document.getElementById("body-wrapper").offsetHeight + document.getElementById("footer-transition-wrapper").offsetHeight;
     const w = window_width;
     canvas_wrapper.style.height = h + "px";
     canvas_wrapper.style.width = w + "px";
@@ -107,33 +109,3 @@ function draw() {
 
 
 onresize();
-
-
-
-// ==============  Interactive Controls  =========================
-
-const control_wrapper = $("#control-wrapper");
-const control_hover = $("#control-hover")[0];
-const control_panel = $("#interactives-control")[0];
-
-var emerged = false;
-const emerge_speed = 200;
-const emerge = () => {
-    emerged = true;
-    control_wrapper.animate({left: 95}, emerge_speed);
-}
-const collapse = () => {
-    emerged = false;
-    control_wrapper.animate({left: "0"}, emerge_speed);
-}
-
-
-control_hover.onmouseenter = control_panel.onmouseenter = emerge;
-control_wrapper[0].onmouseleave = collapse;
-control_hover.ontouchstart = () => {
-    if (emerged) {
-        collapse();
-    } else {
-        emerge();
-    }
-}
