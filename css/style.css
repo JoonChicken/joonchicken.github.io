@@ -37,6 +37,14 @@ img {
 	justify-content: space-between;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+    }
+}
+
+
 
 /*========== Body Spacer ===========*/
 
@@ -64,6 +72,15 @@ img {
 
 /*========== Interactive Control ==============*/
 
+#control-wrapper {
+	position: fixed;
+	top: 100px;
+	left: 0;
+	margin-left: -95px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 .control-panel {
 	color: #fff;
 	font-family: "clear-sans", Arial, Helvetica, sans-serif;
@@ -75,15 +92,6 @@ img {
 	padding: 5px;
 	display: inline-block;
 	z-index: 1;
-}
-
-#control-wrapper {
-	position: fixed;
-	top: 100px;
-	left: 0;
-	margin-left: -95px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 }
 
 #interactives-control {
