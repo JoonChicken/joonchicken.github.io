@@ -209,11 +209,11 @@ img {
 	padding: 0 15% 0 15%;
 }
 
-.content-panel, .content-panel-inner, .content-panel-body {
+.content-panel, .content-panel-inner, .content-panel-body, .content-panel-body-outer {
 	box-sizing: border-box;
 }
 
-.content-panel, .content-panel-inner, .content-panel-body, .panel-header-x {
+.content-panel, .content-panel-inner, .content-panel-body-outer, .panel-header-x {
 	padding: 0;
 	border-width: 2px;
 	border-style: outset;
@@ -283,13 +283,25 @@ img {
 	border-right-color: rgb(241, 244, 243);
 }
 
-.content-panel-body {
-	background-color: white;
+.content-panel-body-outer {
+	border-width: 1px;
 	height: 100%;
 	border-style: inset;
-	border-top-color: rgb(101, 110, 106);
-	border-bottom-color: rgb(241, 244, 243);
-	border-right-color: rgb(241, 244, 243);
+	border-top-color: rgb(241, 244, 243);
+	border-left-color: rgb(241, 244, 243);
+	border-bottom-color: white;
+	border-right-color: white;
+}
+
+.content-panel-body {
+	height: 100%;
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-top-color: black;
+	border-left-color: black;
+	border-right-color: rgb(198, 214, 208);
+	border-bottom-color: rgb(198, 214, 208);
 }
 
 
