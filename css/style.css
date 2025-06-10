@@ -295,6 +295,37 @@ img {
 
 /*==========  Footer  ==========*/
 
+
+
+#footer-transition-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-transition-repeat-left {
+    display: inline-block;
+    height: 100%;
+    background-image: url("images/footer_repeat.png");
+    background-size: auto auto;
+	background-position: right center;
+	background-repeat: repeat-x;
+}
+
+#footer-transition-main {
+
+}
+
+#footer-transition-repeat-right {
+    display: inline-block;
+    height: 100%;
+    background-image: url("images/footer_repeat.png");
+    background-size: auto auto;
+	background-position: left center;
+	background-repeat: repeat-x;
+}
+
 #footer-transition-wrapper::selection {
  	background-color: transparent;
 }
