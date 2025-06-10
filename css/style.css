@@ -298,6 +298,9 @@ img {
 
 
 #footer-transition-wrapper {
+    background-image: url("/images/footer_mountains.png");
+    background-repeat: repeat-x;
+    background-position: 60% center;
     display: flex;
     flex-direction: row;
     align-items: center;
