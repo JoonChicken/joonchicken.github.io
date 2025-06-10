@@ -209,7 +209,8 @@ img {
 	padding: 0 15% 0 15%;
 }
 
-.content-panel, .content-panel-inner, .content-panel-body, .content-panel-body-outer {
+.content-panel, .content-panel-inner, .content-panel-body, .content-panel-body-outer, .content-panel-body-div {
+	overflow: hidden;
 	box-sizing: border-box;
 }
 
@@ -221,6 +222,7 @@ img {
 }
 
 .content-panel {
+	position: absolute;
 	background-color: #0005;
 	border-bottom-color: rgb(122, 130, 126);
 	border-top-color: rgb(241, 244, 243);
@@ -302,6 +304,11 @@ img {
 	border-left-color: black;
 	border-right-color: rgb(198, 214, 208);
 	border-bottom-color: rgb(198, 214, 208);
+}
+
+.content-panel-body-div {
+ 	display: flex;
+	flex-direction: column;
 }
 
 
