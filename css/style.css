@@ -22,8 +22,8 @@ img {
 }
 
 @font-face {
-	font-family: "papyrus";
-	src: url("/fonts/papyrus.ttf");
+	font-family: "comic-papyrus";
+	src: url("/fonts/Comic\ Papyrus.ttf");
 }
 
 @font-face {
@@ -307,34 +307,73 @@ img {
 
 /*==========  Footer  ==========*/
 
+
+
+#footer-transition-wrapper {
+    background-image: url("/images/footer_mountains.png");
+    background-repeat: repeat-x;
+    background-position: 60% center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-transition-repeat-left {
+    background-image: url("/images/footer_repeat.png");
+	background-position: right center;
+	background-repeat: repeat-x;
+}
+
+#footer-transition-main {
+    flex-shrink: 0;
+}
+
+#footer-transition-repeat-right {
+    background-image: url("/images/footer_repeat.png");
+	background-position: left center;
+	background-repeat: repeat-x;
+}
+
 #footer-transition-wrapper::selection {
  	background-color: transparent;
 }
 
 #footer-wrapper {
 	width: 100%;
-	background-image: url("/images/grass_transition.svg");
-	background-size: 800px auto;
-	background-position: top center;
-	background-repeat: repeat-x;
-	background-color: rgb(81, 46, 0);
+    background-size: auto 100%;
+    background-position: center center;
+    background-image: url("/images/footer_underground.png");
+    background-repeat: repeat-x;
+}
+
+#footer-filter {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#0000, 45%,  #000d);
+}
+
+#footer-grass-transition {
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    background-position: center top;
+    background-image: url("/images/hanging_grass.png");
+    background-repeat: repeat-x;
 }
 
 #footer-spacer {
-	padding: 200px 100px 150px 100px
+	padding: 90px 100px 220px 100px
 }
 
-#footer-text {
+#footer-text, #footer-emojis {
+    font-size: large;
 	width: 100%;
-	line-height: 35px;
-	color: white;
+	color: rgb(235, 224, 203);
 	text-align: center;
-	font-family: "Comic Sans MS", "Comic Sans", Arial, Helvetica, sans-serif;
+	font-family: "comic-papyrus", "Comic Sans", Arial, Helvetica, sans-serif;
 }
 
-#footer-emojis {
-	font-family: "papyrus", "Comic Sans", Arial, Helvetica, sans-serif;
-}
 
 .ui-image-full-width {
 	width: 100%;
