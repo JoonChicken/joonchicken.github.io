@@ -8,9 +8,9 @@ if (month == 11) {
 } else {
     emojiString = "❤️"
 }
-document.getElementById("footer-emojis").innerHTML = emojiString + " Graphic design is my passion " + emojiString
+document.getElementById("footer-emojis").innerHTML = " With " + emojiString + ",";
 const copyright = document.getElementById("footer-copyright");
-copyright.innerHTML = "<a href=\"https://creativecommons.org/publicdomain/zero/1.0/\"><img src=\"https://mirrors.creativecommons.org/presskit/icons/cc.svg\" style=\"max-width: 1em;max-height:1em;margin-left: .2em;\"><img src=\"https://mirrors.creativecommons.org/presskit/icons/zero.svg\" style=\"max-width: 1em;max-height:1em;margin-left: .2em;\"></img></a>" + year + " Joon Heo";
+copyright.innerHTML = "©" + year + " Joon Heo";
 
 
 
