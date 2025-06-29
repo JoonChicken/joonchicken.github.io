@@ -95,6 +95,7 @@ img {
 /*========== Interactive Control ==============*/
 
 #control-wrapper {
+	z-index: 10;
 	position: fixed;
 	top: 100px;
 	left: 0;
@@ -334,6 +335,17 @@ img {
 	flex-direction: column;
 	padding: 10px 15px 10px 15px;
 }
+
+
+
+/*==========  Projects Viewer  ==========*/
+
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+
 
 
 /*==========  Footer  ==========*/
