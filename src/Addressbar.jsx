@@ -1,7 +1,11 @@
 export default function Addressbar() {
     return (
         <section className="explorer-addressbar">
-            <h1>This is the Addressbar</h1>
+            <span>Address</span>
+            <span className="path-container"> /* will be flexbox */
+                <img />
+                <p className="path">C:\Users\Joon\etc...</p>
+            </span>
         </section>
     );
 }

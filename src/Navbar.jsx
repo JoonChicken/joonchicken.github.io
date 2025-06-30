@@ -1,7 +1,18 @@
 export default function Navbar() {
     return (
         <section className="explorer-navbar">
-            <h1>This is the navbar</h1>
+            <button className="back-button" aria-label="back button">
+                <img/>
+                <p>Back</p>
+            </button>
+            <button className="forward-button" aria-label="forward button">
+                <img/>
+                <p>Forward</p>
+            </button>
+            <button className="up-button" aria-label="move up directory button">
+                <img/>
+                <p>Up</p>
+            </button>
         </section>
     );
 }
