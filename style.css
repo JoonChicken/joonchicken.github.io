@@ -1,3 +1,20 @@
+:root {
+	--stars-gradient-top: rgb(8, 0, 17);
+	--stars-gradient-bottom: rgb(29, 0, 134);
+	--menu-bg-color: rgb(0, 195, 40);
+	--panel-main-col: rgb(198, 214, 208);
+	--panel-main-col-half-opacity: rgba(198, 214, 208, 0.5);
+	--panel-top-bevel: rgb(241, 244, 243);
+	--panel-ui-darker-bevel: rgb(101, 110, 106);
+	--panel-bottom-bevel-special: rgb(122, 130, 126);
+	--window-shadow-col: #000d;
+}
+
+
+* {
+	box-sizing: border-box;
+}
+
 .default-body {
     margin: 8px 0px;
     font-size: 17px;
@@ -9,14 +26,12 @@ body {
 	background-color: transparent;
 }
 
-
 .center {
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
-
 
 img {
     image-rendering: -moz-pixelated;
@@ -85,7 +100,7 @@ img {
 }
 
 #starry-canvas {
-	background-image: linear-gradient(rgb(8, 0, 17), rgb(29, 0, 134));
+	background-image: linear-gradient(var(--stars-gradient-top), var(--stars-gradient-bottom));
 	height: 100%;
     image-rendering: pixelated;
 }
@@ -95,11 +110,10 @@ img {
 /*========== Interactive Control ==============*/
 
 #control-wrapper {
-	z-index: 10;
 	position: fixed;
 	top: 100px;
 	left: 0;
-	margin-left: -95px;
+	margin-left: -80px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -139,16 +153,15 @@ img {
 
 .menu-panel {
 	padding: 20px;
-	background-color: #0005;
 	border-style: solid;
 	border-color: black;
 	border-top: 0px;
 	border-left: 0px;
-	box-shadow: 5px 0px rgb(198, 214, 208), 5px 5px rgb(198, 214, 208);
+	box-shadow: 5px 0px var(--panel-main-col), 5px 5px var(--panel-main-col);
 }
 
 .menu-panel {
-	background-color: rgb(0, 195, 40);
+	background-color: var(--menu-bg-color);
 	margin-top: 50px;
 	padding: 15px 20px 15px 15px;
 }
@@ -198,7 +211,7 @@ img {
 #title-text-bottom {
 	font-size: 40px;
 	text-align: center;
-	text-shadow: 1.5px 1.5px 2px rgb(0, 0, 0);
+	text-shadow: 1.5px 1.5px 2px black;
 	color: white;
 	font-family: "heavitas", Helvetica, Arial, sans-serif;
 }
@@ -228,6 +241,10 @@ img {
 
 /*========== Body ============*/
 
+.focused {
+	z-index: 5;
+}
+
 #body-wrapper {
 	width: 1px;
     margin: auto;
@@ -235,7 +252,6 @@ img {
 
 .content-panel, .content-panel-inner, .content-panel-body, .content-panel-body-outer, .content-panel-body-div {
 	overflow: hidden;
-	box-sizing: border-box;
 }
 
 .content-panel, .content-panel-inner, .content-panel-body-outer, .panel-header-x {
@@ -248,10 +264,10 @@ img {
 .content-panel {
 	position: absolute;
 	background-color: #0005;
-	border-bottom-color: rgb(122, 130, 126);
-	border-top-color: rgb(241, 244, 243);
-	border-left-color: rgb(241, 244, 243);
-	box-shadow: 1px 1px 5px #000d;
+	border-bottom-color: var(--panel-bottom-bevel-special);
+	border-top-color: var(--panel-top-bevel);
+	border-left-color: var(--panel-top-bevel);
+	box-shadow: 1px 1px 5px var(--window-shadow-col);
 }
 
 .content-panel-inner {
@@ -293,28 +309,28 @@ img {
 	font-size: small;
 	text-align: center;
 	line-height: 15px;
-	width: 18px;
-	height: 15px;
-	background-color: rgb(198, 214, 208);
-	border-left-color: rgb(241, 244, 243);
-	border-top-color: rgb(241, 244, 243);
-	border-bottom-color: rgb(101, 110, 106);
-	border-right-color: rgb(101, 110, 106);
+	width: 22px;
+	height: 19px;
+	background-color: var(--panel-main-col);
+	border-left-color: var(--panel-top-bevel);
+	border-top-color: var(--panel-top-bevel);
+	border-bottom-color: var(--panel-ui-darker-bevel);
+	border-right-color: var(--panel-ui-darker-bevel);
 }
 
 .panel-header-x:active:hover {
-	border-left-color: rgb(101, 110, 106);
-	border-top-color: rgb(101, 110, 106);
-	border-bottom-color: rgb(241, 244, 243);
-	border-right-color: rgb(241, 244, 243);
+	border-left-color: var(--panel-ui-darker-bevel);
+	border-top-color: var(--panel-ui-darker-bevel);
+	border-bottom-color: var(--panel-top-bevel);
+	border-right-color: var(--panel-top-bevel);
 }
 
 .content-panel-body-outer {
-	border-width: 1px;
 	height: 100%;
+	border-width: 1px;
 	border-style: inset;
-	border-top-color: rgb(241, 244, 243);
-	border-left-color: rgb(241, 244, 243);
+	border-top-color: var(--panel-top-bevel);
+	border-left-color: var(--panel-top-bevel);
 	border-bottom-color: white;
 	border-right-color: white;
 }
@@ -326,8 +342,8 @@ img {
 	border-width: 1px;
 	border-top-color: black;
 	border-left-color: black;
-	border-right-color: rgb(198, 214, 208);
-	border-bottom-color: rgb(198, 214, 208);
+	border-right-color: var(--panel-main-col);
+	border-bottom-color: var(--panel-main-col);
 }
 
 .content-panel-body-div {
@@ -341,16 +357,52 @@ img {
 /*==========  Projects Viewer  ==========*/
 
 #root {
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
+	background-color: var(--panel-main-col);
+}
+
+.ScrollbarsCustom-Track.ScrollbarsCustom-TrackY {
+	top: 0px !important;
+	height: 100% !important;
+	width: 16px !important;
+	border-radius: 0px !important;
+	background-color: var(--panel-main-col-half-opacity) !important;
+}
+
+.ScrollbarsCustom-Thumb.ScrollbarsCustom-ThumbY {
+	width: 100% !important;
+	background-color: var(--panel-main-col) !important;
+	border-radius: 0px !important;
+
+	border-style: solid;
+	border-width: 1px;
+	border-top-color: var(--panel-main-col);
+	border-left-color: var(--panel-main-col);
+	border-right-color: black;
+	border-bottom-color: black;
+}
+
+.thumbYInnerDiv{
+	width: 100%;
+	height: 100%;
+
+	border-style: solid;
+	border-width: 1px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-ui-darker-bevel);
+	border-bottom-color: var(--panel-ui-darker-bevel);
 }
 
 
 
 
+
+
 /*==========  Footer  ==========*/
-
-
 
 #footer-transition-wrapper {
     perspective: 1px;

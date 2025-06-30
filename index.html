@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>The Evil Machinations of Joon Heo</title>
     <meta name="The portfolio site of Joon Heo. Programmer and artist. Most definitely not a chicken.">
-	<link rel="stylesheet" href="/style.css">
+	  <link rel="stylesheet" href="/style.css">
+    <script type="module" src="/src/index.jsx"></script>
     <script
 			  src="https://code.jquery.com/jquery-3.7.1.min.js"
 			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -44,6 +45,8 @@
     <div id="menubar-wrapper">
       <div id="menubar-spacer">
         <div class="menu-panel">
+          <!--main menubar flex container that distributes the left and right-->
+          <!--elements nicely:-->
           <nav class="flex-container">
             <div>
               <a href="/" id="homepage-link">
@@ -148,12 +151,8 @@
             </div>
             <div class="panel-header-x">✖</div>
           </div>
-          <div class="content-panel-body-outer">
-            <div class="content-panel-body" style="background-color: rgb(198, 214, 208); display: flex; flex-direction: column; justify-content: center; align-items: center;">
-              <!-- React stuff goes here -->
-              <div id="root"></div>
-            </div>
-          </div>
+          <!-- React stuff goes here -->
+          <div id="root"></div>
         </div>
       </div>
 
