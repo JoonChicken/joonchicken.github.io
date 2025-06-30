@@ -1,4 +1,4 @@
-// ==============  Body Stuff  =========================
+// ==============  Draggable stuff  =========================
 
 $(".content-panel-header").disableSelection();
 $(".panel-header-x").disableSelection();
@@ -14,4 +14,17 @@ $(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-
 
 $(".panel-header-x").on("click", function() {
     $(this).closest(".content-panel").hide();
+});
+
+
+// ============  Focus on mousedown  =======================
+
+var focusedWindow = null;
+
+$(".content-panel.ui-draggable").on("mousedown", function() {
+    if (focusedWindow !== null) {
+        focusedWindow.classList.remove("focused");
+    }
+    focusedWindow = this;
+    this.classList.add("focused");
 });
