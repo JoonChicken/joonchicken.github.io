@@ -5,8 +5,11 @@ import ExplorerViewport from "/src/ExplorerViewport";
 export default function App() {
     return (
         <>
-            <Navbar />
-            <Addressbar />
+            <div className="explorer-controls-container">
+                <Navbar />
+                <Addressbar />
+            </div>
+            <div className="explorer-spacer"></div>
             <ExplorerViewport />
         </>
     );

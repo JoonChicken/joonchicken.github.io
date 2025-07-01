@@ -2,11 +2,11 @@
 	--stars-gradient-top: rgb(8, 0, 17);
 	--stars-gradient-bottom: rgb(29, 0, 134);
 	--menu-bg-color: rgb(0, 195, 40);
-	--panel-main-col: rgb(198, 214, 208);
+	--panel-main-col: rgb(202, 208, 205);
 	--panel-main-col-half-opacity: rgba(198, 214, 208, 0.5);
-	--panel-top-bevel: rgb(241, 244, 243);
-	--panel-ui-darker-bevel: rgb(101, 110, 106);
-	--panel-bottom-bevel-special: rgb(122, 130, 126);
+	--panel-top-bevel: rgb(234, 237, 236);
+	--panel-bottom-bevel-dark: rgb(101, 110, 106);
+	--panel-bottom-bevel-light: rgb(122, 130, 126);
 	--window-shadow-col: #000d;
 }
 
@@ -14,6 +14,8 @@
 * {
 	box-sizing: border-box;
 }
+
+/*#region Some Defaults*/ 
 
 .default-body {
     margin: 8px 0px;
@@ -48,6 +50,11 @@ img {
 	border: none;
 }
 
+/*#endregion*/
+
+
+/*#region Fonts */
+
 @font-face {
 	font-family: "clear-sans";
 	src: url("/fonts/ClearSans-Medium.ttf");
@@ -81,6 +88,8 @@ img {
     }
 }
 
+/*#endregion*/
+
 
 
 /*========== Body Spacer ===========*/
@@ -90,6 +99,7 @@ img {
 }
 
 
+/*#region Starry Background */
 
 /*==========  Starry Background  ==========*/
 
@@ -106,6 +116,10 @@ img {
 }
 
 
+/*#endregion*/
+
+
+/*#region Interactive Control */
 
 /*========== Interactive Control ==============*/
 
@@ -143,6 +157,10 @@ img {
 	display: inline-block;
 }
 
+/*#endregion*/
+
+
+/*#region Menu */
 
 /*==========  Menu  ==========*/
 
@@ -238,6 +256,10 @@ img {
 	filter: drop-shadow(1px 1px 1px black);
 }
 
+/*#endregion*/
+
+
+/*#region Body */
 
 /*========== Body ============*/
 
@@ -264,7 +286,7 @@ img {
 .content-panel {
 	position: absolute;
 	background-color: #0005;
-	border-bottom-color: var(--panel-bottom-bevel-special);
+	border-bottom-color: var(--panel-bottom-bevel-light);
 	border-top-color: var(--panel-top-bevel);
 	border-left-color: var(--panel-top-bevel);
 	box-shadow: 1px 1px 5px var(--window-shadow-col);
@@ -314,13 +336,13 @@ img {
 	background-color: var(--panel-main-col);
 	border-left-color: var(--panel-top-bevel);
 	border-top-color: var(--panel-top-bevel);
-	border-bottom-color: var(--panel-ui-darker-bevel);
-	border-right-color: var(--panel-ui-darker-bevel);
+	border-bottom-color: var(--panel-bottom-bevel-dark);
+	border-right-color: var(--panel-bottom-bevel-dark);
 }
 
 .panel-header-x:active:hover {
-	border-left-color: var(--panel-ui-darker-bevel);
-	border-top-color: var(--panel-ui-darker-bevel);
+	border-left-color: var(--panel-bottom-bevel-dark);
+	border-top-color: var(--panel-bottom-bevel-dark);
 	border-bottom-color: var(--panel-top-bevel);
 	border-right-color: var(--panel-top-bevel);
 }
@@ -352,11 +374,16 @@ img {
 	padding: 10px 15px 10px 15px;
 }
 
+/*#endregion */
 
+
+/*#region Projects Viewer */
 
 /*==========  Projects Viewer  ==========*/
 
 #root {
+	font-family: "windows", sans-serif;
+	font-size: 15px;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -364,10 +391,138 @@ img {
 	background-color: var(--panel-main-col);
 }
 
+.explorer-controls-container {
+	border-style: solid;
+	border-width: 2px;
+	border-bottom-color: var(--panel-bottom-bevel-light);
+	border-right-color: var(--panel-bottom-bevel-light);
+	border-top-color: var(--panel-bottom-bevel-light);
+	border-left-color: var(--panel-bottom-bevel-light);
+}
+
+.explorer-controls-row {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+
+	border-style: solid;
+	border-width: 2px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-main-col);
+	border-bottom-color: var(--panel-bottom-bevel-light);
+}
+
+.tactile-bump {
+	margin-right: 5px;
+	display: flex;
+	height: 100%;
+	width: 4px;
+
+	border: solid 2px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-bottom-bevel-light);
+	border-bottom-color: var(--panel-bottom-bevel-light)
+}
+
+/* Navigation */
+
+.explorer-navbar {
+	height: 75px;
+}
+
+.explorer-nav-button {
+	display: flex;
+	height: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	background-color: inherit;
+	border-width: 0px;
+	width: 85px;
+	padding: 0px;
+}
+
+.explorer-nav-button-inner {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
+}
+
+.explorer-nav-button > p {
+	margin: 0px;
+}
+
+.explorer-nav-button:active {
+	border: solid 1px;
+	border-top-color: black;
+	border-left-color: black;
+	border-right-color: white;
+	border-bottom-color: white;
+}
+
+.explorer-nav-button-inner:active {
+	border: solid 1px;
+	border-top-color: var(--panel-bottom-bevel-light);
+	border-left-color: var(--panel-bottom-bevel-light);
+	border-right-color: var(--panel-top-bevel);
+	border-bottom-color: var(--panel-top-bevel);
+}
+
+
+/* Address */
+
+.explorer-addressbar {
+	height: 40px;
+	border-bottom: none;
+}
+
+.path-container {
+	margin: 0px 0px;
+	height: 100%;
+	width: 100%;
+	margin-left: 5px;
+	display: flex;
+
+	border: solid 1px;
+	border-top-color: black;
+	border-left-color: black;
+	border-right-color: white;
+	border-bottom-color: white;
+}
+
+.path-container-inner {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: white;
+
+	border: solid 1px;
+	border-top-color: var(--panel-bottom-bevel-light);
+	border-left-color: var(--panel-bottom-bevel-light);
+	border-right-color: var(--panel-top-bevel);
+	border-bottom-color: var(--panel-top-bevel);
+}
+
+.path {
+	margin-left: 5px;
+}
+
+
+/* ------ */
+
+
+.explorer-spacer {
+	height: 8px;
+}
+
+
 .ScrollbarsCustom-Track.ScrollbarsCustom-TrackY {
 	top: 0px !important;
 	height: 100% !important;
-	width: 16px !important;
+	width: 18px !important;
 	border-radius: 0px !important;
 	background-color: var(--panel-main-col-half-opacity) !important;
 }
@@ -393,12 +548,14 @@ img {
 	border-width: 1px;
 	border-top-color: white;
 	border-left-color: white;
-	border-right-color: var(--panel-ui-darker-bevel);
-	border-bottom-color: var(--panel-ui-darker-bevel);
+	border-right-color: var(--panel-bottom-bevel-dark);
+	border-bottom-color: var(--panel-bottom-bevel-dark);
 }
 
+/*#endregion*/
 
 
+/*#region Footer */
 
 /*==========  Footer  ==========*/
 
@@ -479,4 +636,4 @@ img {
 	line-height: 0%;
 }
 
-
+/*#endregion*/
