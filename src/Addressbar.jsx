@@ -5,7 +5,7 @@ export default function Addressbar() {
             <span>Address</span>
             <div className="path-container">
                 <div className="path-container-inner">
-                    <img />
+                    <img className="hard-disk-icon" src="/images/hard_disk.png"/>
                     <input className="path" value="C:\projects"/>
                 </div>
             </div>

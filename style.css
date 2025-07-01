@@ -555,6 +555,10 @@ u {
 	border-bottom-color: var(--panel-top-bevel);
 }
 
+.hard-disk-icon {
+	margin: 0px 1px;
+}
+
 .path {
 	all: unset;
 	width: 100%;
