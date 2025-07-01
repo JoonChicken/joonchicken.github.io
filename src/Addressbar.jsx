@@ -6,7 +6,7 @@ export default function Addressbar() {
             <div className="path-container">
                 <div className="path-container-inner">
                     <img />
-                    <p className="path">C:\Users\Joon\etc...</p>
+                    <input className="path" value="C:\projects"/>
                 </div>
             </div>
         </section>

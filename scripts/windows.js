@@ -9,7 +9,7 @@ for (var i = 0; i < content_panels.length; i++) {
     content_panels[i].style.height = "" + content_panels[i].clientHeight + "px";
 }
 
-$(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x"});
+$(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x", distance: "0"});
 
 
 $(".panel-header-x").on("click", function() {
@@ -19,12 +19,16 @@ $(".panel-header-x").on("click", function() {
 
 // ============  Focus on mousedown  =======================
 
-var focusedWindow = null;
+var windows = [];
+
+// some weirdness is going on with the z-index -- idk if it's this code
+// or how jquery initializes the draggable windows
 
 $(".content-panel.ui-draggable").on("mousedown", function() {
-    if (focusedWindow !== null) {
-        focusedWindow.classList.remove("focused");
+    windows = windows.filter(element => element != this);
+    windows.push(this);
+    for (var i = 0; i < windows.length; i++) {
+        windows[i].style.zIndex = i;
     }
-    focusedWindow = this;
-    this.classList.add("focused");
+    console.log(windows);
 });
