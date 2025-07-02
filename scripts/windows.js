@@ -30,5 +30,4 @@ $(".content-panel.ui-draggable").on("mousedown", function() {
     for (var i = 0; i < windows.length; i++) {
         windows[i].style.zIndex = i;
     }
-    console.log(windows);
 });

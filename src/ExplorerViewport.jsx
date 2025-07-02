@@ -1,4 +1,5 @@
 import { Scrollbar } from 'react-scrollbars-custom';
+import Item from "/src/Item.jsx"
 
 export default function ExplorerViewport() {
     return (
@@ -14,8 +15,20 @@ export default function ExplorerViewport() {
                         },
                     }}
                 >
-                    <div style={{height: "1000px"}}>
-                        <h1>Hello!</h1>
+                    <div className="viewport" style={{height: "1000px"}}> {/* height will eventually depend on # items passed*/}
+                        {/* Viewport content goes below */}
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
+                        <Item src="/images/explorer_folder.png" text="joonchicken.github.io_is_a_project_of_mine" />
                     </div>
                 </Scrollbar>
             </div>
