@@ -8,13 +8,19 @@
 	--panel-bottom-bevel-dark: rgb(101, 110, 106);
 	--panel-bottom-bevel-light: rgb(122, 130, 126);
 	--window-shadow-col: #000d;
+	--selection-blue: #000080;
 }
 
+::selection {
+	color: white;
+	background-color: var(--selection-blue);
+}
 
 * {
 	box-sizing: border-box;
 	z-index: 0;
 }
+
 
 /*#region Some Defaults*/ 
 
@@ -58,6 +64,7 @@ u {
 /*#endregion*/
 
 
+
 /*#region Fonts */
 
 @font-face {
@@ -78,6 +85,11 @@ u {
 @font-face {
 	font-family: "windows";
 	src: url("/fonts/Windows\ Regular.ttf");
+}
+
+@font-face {
+	font-family: "large_windows";
+	src: url("/fonts/matrix-sans.otf");
 }
 
 .flex-container {
@@ -104,6 +116,7 @@ u {
 }
 
 
+
 /*#region Starry Background */
 
 /*==========  Starry Background  ==========*/
@@ -124,11 +137,13 @@ u {
 /*#endregion*/
 
 
+
 /*#region Interactive Control */
 
 /*========== Interactive Control ==============*/
 
 #control-wrapper {
+	z-index: 9999999;
 	position: fixed;
 	top: 100px;
 	left: 0;
@@ -147,7 +162,6 @@ u {
 	border-width: 1px;
 	padding: 5px;
 	display: inline-block;
-	z-index: 1;
 }
 
 #interactives-control {
@@ -163,6 +177,7 @@ u {
 }
 
 /*#endregion*/
+
 
 
 /*#region Menu */
@@ -262,6 +277,7 @@ u {
 }
 
 /*#endregion*/
+
 
 
 /*#region Body */
@@ -382,6 +398,7 @@ u {
 /*#endregion */
 
 
+
 /*#region Projects Viewer */
 
 /*==========  Projects Viewer  ==========*/
@@ -394,11 +411,12 @@ u {
 	width: 100%;
 	height: 100%;
 	background-color: var(--panel-main-col);
+	image-rendering: pixelated;
 }
 
 .explorer-controls-container {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 1.5px;
 	border-bottom-color: white;
 	border-right-color: white;
 	border-top-color: var(--panel-bottom-bevel-light);
@@ -411,7 +429,7 @@ u {
 	padding: 3px;
 
 	border-style: solid;
-	border-width: 1px;
+	border-width: 1.5px;
 	border-top-color: white;
 	border-left-color: white;
 	border-right-color: var(--panel-bottom-bevel-light);
@@ -424,14 +442,14 @@ u {
 	height: 100%;
 	width: 4px;
 
-	border: solid 1px;
+	border: solid 1.5px;
 	border-top-color: white;
 	border-left-color: white;
 	border-right-color: var(--panel-bottom-bevel-light);
 	border-bottom-color: var(--panel-bottom-bevel-light)
 }
 
-/* Menubar */
+/* Menubar -------------------------------------*/
 
 .explorer-menubar {
 	height: 30px;
@@ -444,28 +462,30 @@ u {
 	text-shadow: 1.2px 1.2px 0 white;
 }
 
-/* Navigation */
+/* Navigation -------------------------------------*/
 
 .explorer-navbar {
 	height: 60px;
 }
 
-.explorer-nav-button-outer {
+.explorer-nav-button {
 	display: flex;
 	height: 100%;
 	border-width: 0px;
 	width: 80px;
 	padding: 0px;
 	margin-left: 5px;
-}
-
-.explorer-nav-button {
-	height: 100%;
-	width: 100%;
-	border: 0px;
 
 	font-family: inherit;
 	font-size: inherit;
+
+	background-color: inherit;
+}
+
+.explorer-nav-button-inner {
+	height: 100%;
+	width: 100%;
+	border: 0px;
 
 	background-color: inherit;
 
@@ -476,11 +496,19 @@ u {
 	gap: 5px;
 }
 
-.explorer-nav-button > p {
+.explorer-nav-button-inner > p {
 	margin: 0px;
 }
 
-.explorer-nav-button-outer:not([disabled]):active {
+.explorer-nav-button:not([disabled]):hover {
+	border: solid 1.5px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-bottom-bevel-light);;
+	border-bottom-color: var(--panel-bottom-bevel-light);;
+}
+
+.explorer-nav-button:not([disabled]):active {
 	border: solid 1px;
 	border-top-color: black;
 	border-left-color: black;
@@ -488,21 +516,21 @@ u {
 	border-bottom-color: white;
 }
 
-.explorer-nav-button:disabled > p {
-	color: var(--panel-bottom-bevel-dark);
-	text-shadow: 1.2px 1.2px 0 white;
-}
-
-.explorer-nav-button:disabled > img {
-	filter: drop-shadow(2.5px 2.5px 0 white);
-}
-
-.explorer-nav-button:enabled:active {
+.explorer-nav-button:not([disabled]):active > .explorer-nav-button-inner {
 	border: solid 1px;
 	border-top-color: var(--panel-bottom-bevel-light);
 	border-left-color: var(--panel-bottom-bevel-light);
 	border-right-color: var(--panel-top-bevel);
 	border-bottom-color: var(--panel-top-bevel);
+}
+
+.explorer-nav-button:disabled > .explorer-nav-button-inner > p {
+	color: var(--panel-bottom-bevel-dark);
+	text-shadow: 1.2px 1.2px 0 white;
+}
+
+.explorer-nav-button:disabled > .explorer-nav-button-inner > img {
+	filter: drop-shadow(2.5px 2.5px 0 white);
 }
 
 .explorer-nav-button-icon {
@@ -516,12 +544,12 @@ u {
 	gap: 2px;
 }
 
-.up-button > img {
+.up-button > .explorer-nav-button-inner > img {
 	width: 25px;
 }
 
 
-/* Address */
+/* Address -------------------------------------*/
 
 .explorer-addressbar {
 	height: 35px;
@@ -575,7 +603,7 @@ u {
 /*---------------*/
 
 
-/* Explorer viewport */
+/* Explorer viewport -------------------------------------*/
 
 .ScrollbarsCustom-Track.ScrollbarsCustom-TrackY {
 	top: 0px !important;
@@ -610,9 +638,51 @@ u {
 	border-bottom-color: var(--panel-bottom-bevel-dark);
 }
 
+/* Item management -------------------------------------*/
 
 .viewport {
-	padding: 20px;
+	display: flex;
+	height: 100%;
+}
+
+.explorer-description-sidebar {
+	width: 30%;
+	height: 100%;
+	flex-shrink: 0;
+	background-image: url("/images/explorer_description_bg.png");
+	background-repeat: no-repeat;
+
+	padding: 20px 0px 0px 30px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.explorer-description-sidebar > .file-icon {
+	margin-top: 17px;
+	width: 48px;
+	height: auto;
+}
+
+.explorer-description-sidebar > h2 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline;
+	font-family: "large_windows", sans-serif;
+	font-size: 33px;
+	width: 100%;
+}
+
+.explorer-description-sidebar > .bar {
+	margin-left: -30px;
+	margin-bottom: 10px;
+}
+
+
+/* Items */
+
+.explorer-items {
+	padding: 0px 5px;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
@@ -623,8 +693,9 @@ u {
 	height: auto;
 	width: 90px;
 	max-height: 110px;
-	margin: 15px;
+	margin: 6px 6px;
 
+	z-index: 0;
 	
 	display: flex;
 	flex-direction: column;
@@ -633,18 +704,21 @@ u {
 	gap: 5px;
 }
 
-.explorer-item-icon {
+.explorer-item > img {
+	z-index: 0;
 	margin-top: 10px;
 	height: auto;
 	width: 50px;
 }
 
-.explorer-item-text {
+.explorer-item > p {
 	margin: 0px -20px 5px;
-	width: 85px;
+	padding: 0px 2px;
+	line-height: 1.2rem;
+	max-width: 100px;
 	text-align: center;
 	text-wrap: wrap;
-	word-break: break-all;
+	word-break: break-word;
 
 	display: -webkit-box;
     line-clamp: 2;
@@ -654,8 +728,29 @@ u {
     overflow: hidden;
 }
 
+.explorer-item > img::selection, .explorer-item > p::selection {
+	color: inherit;
+	background-color: #0000;
+}
+
+.item-focused > p {	
+	display: block;
+	z-index: 10;
+	outline: dotted 1.5px black;
+	overflow: visible;
+}
+
+.item-selected > p {
+	display: block;
+	z-index: 100;
+	color: white;
+	background-color: var(--selection-blue);
+	outline: dotted 1.5px black;
+	overflow: visible;
+}
 
 /*#endregion*/
+
 
 
 /*#region Footer */
@@ -721,7 +816,7 @@ u {
 }
 
 #footer-spacer {
-	padding: 90px 100px 220px 100px
+	padding: 70px 100px 190px 100px
 }
 
 #footer-text, #footer-emojis {

@@ -1,8 +1,8 @@
-export default function Item({src, text}) {
+export default function Item({additionalClassName, src, name}) {
     return (
-        <div className="explorer-item">
-            <img className="explorer-item-icon" src={src} />
-            <p className="explorer-item-text">{text}</p>
+        <div className={"explorer-item " + additionalClassName}>
+            <img src={src} />
+            <p>{name}</p>
         </div>
     );
 }
