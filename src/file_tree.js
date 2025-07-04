@@ -2,7 +2,7 @@ class Node {
     constructor(type, name, children) {
         this.type = type;
         this.name = name;
-        this.selected = true;
+        this.selected = false;
         this.children = children;
     }
 }
@@ -28,7 +28,7 @@ export default [
         new Node("folder", "temporary", []),
         new Node("file", "joooon", [])
     ]),
-    new Node("folder", "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", [
+    new Node("folder", "lllllllllllllllllllllllllllllllllll", [
         new Node("folder", "temporary", []),
         new Node("file", "joooon", [])
     ]),

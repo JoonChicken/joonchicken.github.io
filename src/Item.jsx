@@ -1,8 +1,8 @@
-export default function Item({additionalClassName, src, name}) {
+export default function Item({additionalClassName, src, name, onClick}) {
     return (
-        <div className={"explorer-item " + additionalClassName}>
+        <button className={"explorer-item " + additionalClassName} onClick={onClick}>
             <img src={src} />
             <p>{name}</p>
-        </div>
+        </button>
     );
 }

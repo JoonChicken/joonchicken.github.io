@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import { Scrollbar } from 'react-scrollbars-custom';
 import Item from "/src/Item.jsx"
@@ -12,6 +12,7 @@ export default function ExplorerViewport({itemsList}) {
     }
 
     const [selectedItemName, setSelectedItemName] = useState(null);
+    const focusedItemName = useRef(null);
 
     if (selectedItemName !== null) {
         itemsList = itemsList.map(item => {
@@ -20,13 +21,23 @@ export default function ExplorerViewport({itemsList}) {
         });
     }
 
-    console.log(itemsList);
+    function itemClicked(e) {
+        setSelectedItemName(e.currentTarget.querySelector("p").innerHTML);
+        focusedItemName.current = null;
+        e.stopPropagation();
+    }
+
+    function bgClicked() {
+        console.log("hmmmmm")
+        focusedItemName.current = selectedItemName;
+        setSelectedItemName(null);
+    }
     
 
     return (
         <div className="content-panel-body-outer">
             <div className="content-panel-body">
-                <div className="viewport">
+                <div className="viewport" onClick={bgClicked}>
                     <div className="explorer-description-sidebar">
                         <img className="file-icon" src={"/images/hard_disk_large.png"}/>
                         <h2>{"(C:)"}</h2>
@@ -48,11 +59,16 @@ export default function ExplorerViewport({itemsList}) {
                                 var type = item.type;
                                 type += item.selected ? "_selected" : "";
 
+                                var classes = item.selected ? "item-selected" : "";
+                                classes += focusedItemName.current === item.name ? " item-focused" : "";
+
                                 return <Item
                                             key={item.id}
-                                            additionalClassName={item.selected ? "item-selected" : ""}
+                                            additionalClassName={classes}
                                             src={imgURLs[type]}
-                                            name={item.name} />;
+                                            name={item.name}
+                                            onClick={itemClicked}
+                                        />;
                             })}
                         </div>
                     </Scrollbar>
