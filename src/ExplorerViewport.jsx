@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import { Scrollbar } from 'react-scrollbars-custom';
 import Item from "/src/Item.jsx"
@@ -11,9 +11,17 @@ export default function ExplorerViewport({itemsList}) {
         file_selected: "/images/note_icon_selected.png"
     }
 
+   // Preloading the above images; effect runs on initial render and never again 
+    useEffect(() => {
+        Object.values(imgURLs).forEach((filename) => {
+            new Image().src = filename;
+        });
+    }, []);
+
     const [selectedItemName, setSelectedItemName] = useState(null);
     const focusedItemName = useRef(null);
 
+    // 
     if (selectedItemName !== null) {
         itemsList = itemsList.map(item => {
             if (item.name == selectedItemName) return {...item, selected: true};
@@ -28,7 +36,6 @@ export default function ExplorerViewport({itemsList}) {
     }
 
     function bgClicked() {
-        console.log("hmmmmm")
         focusedItemName.current = selectedItemName;
         setSelectedItemName(null);
     }
@@ -54,12 +61,12 @@ export default function ExplorerViewport({itemsList}) {
                             },
                         }}
                     >
-                        <div className="explorer-items" style={{height: `${Math.ceil(itemsList.length / 5.0) * 122}px`}}>
+                        <div className="explorer-items" style={{height: `${Math.ceil(itemsList.length / 5.0) * 114}px`}}>
                             {itemsList.map(item => {
-                                var type = item.type;
+                                let type = item.type;
                                 type += item.selected ? "_selected" : "";
 
-                                var classes = item.selected ? "item-selected" : "";
+                                let classes = item.selected ? "item-selected" : "";
                                 classes += focusedItemName.current === item.name ? " item-focused" : "";
 
                                 return <Item

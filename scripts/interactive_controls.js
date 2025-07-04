@@ -5,8 +5,8 @@ const control_wrapper = $("#control-wrapper");
 const control_hover = $("#control-hover")[0];
 const control_panel = $("#interactives-control")[0];
 
-var emerged = false;
-var emerge_speed = 200;
+let emerged = false;
+let emerge_speed = 200;
 if (reducedMotion) {
     emerge_speed = 0;
 }

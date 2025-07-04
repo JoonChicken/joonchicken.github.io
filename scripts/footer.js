@@ -1,8 +1,8 @@
 // Date-specific footer
 const date = new Date()
-var month = date.getMonth()
-var year = date.getFullYear()
-var emojiString = ""
+let month = date.getMonth()
+let year = date.getFullYear()
+let emojiString = ""
 if (month == 11) {
     emojiString = "🎅"
 } else {
