@@ -83,12 +83,12 @@ h3 {
 
 @font-face {
 	font-family: "comic-papyrus";
-	src: url("/fonts/Comic\ Papyrus.ttf");
+	src: url("/fonts/Comic_Papyrus.ttf");
 }
 
 @font-face {
 	font-family: "windows";
-	src: url("/fonts/Windows\ Regular.ttf");
+	src: url("/fonts/Windows_Regular.ttf");
 }
 
 @font-face {

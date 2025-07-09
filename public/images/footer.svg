@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="720"
+   viewBox="0 0 508 190.5"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient13">
+      <stop
+         style="stop-color:#f25151;stop-opacity:1;"
+         offset="0"
+         id="stop13" />
+      <stop
+         style="stop-color:#b23b7c;stop-opacity:1;"
+         offset="1"
+         id="stop14" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient9">
+      <stop
+         style="stop-color:#c4c6d1;stop-opacity:1;"
+         offset="0"
+         id="stop8" />
+      <stop
+         style="stop-color:#f2f2f2;stop-opacity:1;"
+         offset="1"
+         id="stop9" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2">
+      <stop
+         style="stop-color:#29ff00;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+      <stop
+         style="stop-color:#00e99f;stop-opacity:1;"
+         offset="1"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient2"
+       id="linearGradient3"
+       x1="135.46765"
+       y1="251.94118"
+       x2="135.46765"
+       y2="110.73944"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#linearGradient2"
+       id="linearGradient5"
+       x1="392.06778"
+       y1="222.55402"
+       x2="392.06778"
+       y2="86.369598"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       xlink:href="#linearGradient9"
+       id="linearGradient8"
+       x1="165.35992"
+       y1="119.93047"
+       x2="227.35875"
+       y2="123.17211"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.002774,0,0,1.3741635,-12.544686,-6.3421155)" />
+    <linearGradient
+       xlink:href="#linearGradient9"
+       id="linearGradient12"
+       gradientUnits="userSpaceOnUse"
+       x1="151.97426"
+       y1="160.15471"
+       x2="212.74693"
+       y2="147.45667"
+       gradientTransform="matrix(0.85064933,0,0,1.0776699,37.468916,-14.210809)" />
+    <linearGradient
+       xlink:href="#linearGradient13"
+       id="linearGradient14"
+       x1="212.99251"
+       y1="75.18943"
+       x2="206.50038"
+       y2="77.787682"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.86401792,-4.8302822,56.342523)" />
+    <linearGradient
+       xlink:href="#linearGradient13"
+       id="linearGradient15"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.86401792,26.027375,-14.65975)"
+       x1="212.99251"
+       y1="75.18943"
+       x2="206.50038"
+       y2="77.787682" />
+  </defs>
+  <g
+     id="layer1">
+    <ellipse
+       style="opacity:1;fill:url(#linearGradient3);fill-opacity:1;stroke-width:5.29201;stroke-linecap:round;stroke-linejoin:round"
+       id="path2"
+       cx="100.34641"
+       cy="185.99925"
+       rx="160.55426"
+       ry="46.947788" />
+    <ellipse
+       style="opacity:1;fill:url(#linearGradient5);fill-opacity:1;stroke-width:6.92496;stroke-linecap:round;stroke-linejoin:round"
+       id="path1"
+       cx="427.189"
+       cy="193.16685"
+       rx="362.6806"
+       ry="68.450592" />
+    <ellipse
+       style="opacity:1;fill:url(#linearGradient8);stroke:none;stroke-width:6.21215;stroke-linecap:round;stroke-linejoin:round"
+       id="path6"
+       cx="212.60205"
+       cy="166.72861"
+       rx="20.329275"
+       ry="43.528854"
+       transform="matrix(0.98738298,-0.15835041,0.12407091,0.99227335,0,0)" />
+    <ellipse
+       style="opacity:1;fill:url(#linearGradient12);stroke:none;stroke-width:5.06686;stroke-linecap:round;stroke-linejoin:round"
+       id="path5"
+       cx="217.68172"
+       cy="154.83533"
+       rx="33.197098"
+       ry="28.128839" />
+    <ellipse
+       style="opacity:1;fill:url(#linearGradient14);stroke:none;stroke-width:4.91906;stroke-linecap:round;stroke-linejoin:round"
+       id="path12"
+       cx="207.78319"
+       cy="121.15271"
+       rx="3.2943685"
+       ry="5.6927867"
+       transform="rotate(-9.1732518)" />
+    <ellipse
+       style="fill:url(#linearGradient15);stroke:none;stroke-width:4.91906;stroke-linecap:round;stroke-linejoin:round"
+       id="path12-2"
+       cx="238.64084"
+       cy="50.150429"
+       rx="3.2943685"
+       ry="5.6927867"
+       transform="rotate(8.8951225)" />
+  </g>
+</svg>
