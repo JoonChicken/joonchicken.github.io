@@ -8,7 +8,6 @@ for (let i = 0; i < content_panels.length; i++) {
     content_panels[i].style.width = "" + content_panels[i].clientWidth + "px";
     content_panels[i].style.height = "" + content_panels[i].clientHeight + "px";
 }
-
 $(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x", distance: "0"});
 
 
