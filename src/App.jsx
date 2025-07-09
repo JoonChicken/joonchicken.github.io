@@ -8,9 +8,9 @@ import ExplorerViewport from "/src/ExplorerViewport";
 
 
 // I wish js had pointers :(
-function findNodeWithPath(path) {
+function findNodeWithPath(pathArray) {
     var folder = file_tree;
-    for (var name of path) {
+    for (var name of pathArray) {
         for (var child of folder.children) {
             if (name == child.name) {
                 folder = child;
@@ -27,41 +27,43 @@ export default function App() {
     const history = useRef([]);
     const backtrackHistory = useRef([]);
 
-    
     useEffect(() => {
         setCurrentDir(findNodeWithPath(path));
-    }, [path]);
-
+    }, [path])
 
 
     function onItemDoubleClick(e) {
-        const pathOfSelected = path;
-        path.push(e.currentTarget.querySelector("p").innerHTML);
-        if (findNodeWithPath(pathOfSelected).category === "file") {
+        const pathOfSelected = [...path];
+        pathOfSelected.push(e.currentTarget.querySelector("p").innerText);
+        const selectedNode = findNodeWithPath(pathOfSelected)
+        if (selectedNode.category === "file") {
             console.log("summon new window to view file");
             // ----------------
             //-----------------
 
+        } else if (selectedNode.category === "trojan") {
+            console.log("yikes!");
+            
         } else {
-            setPath(pathOfSelected);
-            setCurrentDir(findNodeWithPath(pathOfSelected));
+            backtrackHistory.current = []
             history.current.push(path);
+            setPath(pathOfSelected);
         }
         e.stopPropagation();
     }
 
     function onGoBack() {
-        setPath(history.current[history.current.length - 1]);
-        history.current.pop();
+        backtrackHistory.current.push(path);
+        setPath(history.current.pop());    
     }
 
     function onGoForward() {
-        console.log("forward")
+        history.current.push(path);
+        setPath(backtrackHistory.current.pop());
     }
 
     function onGoUp() {
-        console.log("------------")
-        console.log(path);
+        backtrackHistory.current = []
         history.current.push(path);
         setPath(path.slice(0, -1));
     }

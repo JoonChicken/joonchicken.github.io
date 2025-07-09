@@ -10,6 +10,8 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
     const imgURLs = {
         folder: "/images/explorer_folder.png",
         folder_selected: "/images/explorer_folder_selected.png",
+        trojan: "/images/explorer_folder.png",
+        trojan_selected: "/images/explorer_folder_selected.png",
         file: "/images/note_icon.png",
         file_selected: "/images/note_icon_selected.png",
         drive: "/images/hard_disk_large.png",
@@ -44,7 +46,7 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
 
     // selects the Item that is clicked
     function itemClicked(e) {
-        setSelectedItemName(e.currentTarget.querySelector("p").innerHTML);
+        setSelectedItemName(e.currentTarget.querySelector("p").innerText);
         e.stopPropagation();
     }
 
@@ -58,7 +60,7 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
 
     // selects the Item that is tabbed to
     function onTab() {
-        setSelectedItemName(document.activeElement.querySelector("p").innerHTML);
+        setSelectedItemName(document.activeElement.querySelector("p").innerText);
     }
     
 
