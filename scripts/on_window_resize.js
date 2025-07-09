@@ -2,11 +2,11 @@ import {createNoise2D} from "https://cdn.skypack.dev/simplex-noise@4.0.3";
 const noise2D = createNoise2D();
 const canvas = document.getElementById("starry-canvas");
 const ctx = canvas.getContext('2d');
-var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-var data = imageData.data;
+let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+let data = imageData.data;
 const back_scale = 2;
 
-var window_width = document.body.clientWidth;
+let window_width = document.body.clientWidth;
 
 
 // ====================  When resizing window:  ===========================
@@ -37,21 +37,21 @@ function menuResize() {
     if (document.getElementById("menubar-spacer") == null) return;
 
     // window width defined above
-    var contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
-    var minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
+    let contentMenuRatio = invlerp(content_size_threshold, menu_width_threshold, window_width);
+    let minMenuRatio = invlerp(window_min_size, menu_width_threshold, window_width);
 
     if (window_width < content_size_threshold) {
         document.getElementById("menubar-spacer").style.padding = "50px 4% 50px 8%";
     } else if (window_width < menu_width_threshold) {
-        var rightPad = lerp(4, 15, contentMenuRatio);
-        var leftPad = lerp(8, 17, contentMenuRatio);
+        let rightPad = lerp(4, 15, contentMenuRatio);
+        let leftPad = lerp(8, 17, contentMenuRatio);
         document.getElementById("menubar-spacer").style.padding = "50px " + rightPad + "% 50px " + leftPad + "%";
     } else {
         document.getElementById("menubar-spacer").style.padding = "50px 15% 50px 17%";
     }
 
     if (window_width < menu_width_threshold) {
-        var marginModifier = lerp(0, 5, contentMenuRatio);
+        let marginModifier = lerp(0, 5, contentMenuRatio);
         document.getElementById("title-text-top-container").style.marginLeft = -5 + marginModifier + "px";
         document.getElementById("title-text-bottom-container").style.marginLeft = -235 + marginModifier + "px";
     } else {
@@ -60,7 +60,7 @@ function menuResize() {
     }
 
     if (window_width < window_min_size) {
-        var menuGap = lerp(5, 30, minMenuRatio);
+        let menuGap = lerp(5, 30, minMenuRatio);
         document.getElementById("menu-buttons-flex-container").style.gap = menuGap + "px";
     } else {
         document.getElementById("menu-buttons-flex-container").style.gap = "30px";
@@ -87,11 +87,11 @@ function backgroundResize() {
 
 // Drawing background on canvas
 function draw() {
-    var col = 0;
-    var scale = 0.1;
-    var threshold = 0.5;
-    for (var i = 0; i < canvas.width; i++) { // image array stores rgba
-        for (var j = 0; j < canvas.height; j++) {
+    let col = 0;
+    let scale = 0.1;
+    let threshold = 0.5;
+    for (let i = 0; i < canvas.width; i++) { // image array stores rgba
+        for (let j = 0; j < canvas.height; j++) {
             col = (noise2D((i) * scale, (j) * scale) + noise2D((i + Math.random() * 100) * scale * 2, (j + Math.random() * 100) * scale * 2)) * 0.5;
             col *= col;
             if (col > threshold) {

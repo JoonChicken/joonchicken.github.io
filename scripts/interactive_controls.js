@@ -5,14 +5,14 @@ const control_wrapper = $("#control-wrapper");
 const control_hover = $("#control-hover")[0];
 const control_panel = $("#interactives-control")[0];
 
-var emerged = false;
-var emerge_speed = 200;
+let emerged = false;
+let emerge_speed = 200;
 if (reducedMotion) {
     emerge_speed = 0;
 }
 const emerge = () => {
     emerged = true;
-    control_wrapper.animate({left: "95"}, emerge_speed);
+    control_wrapper.animate({left: "80"}, emerge_speed);
 
 }
 const collapse = () => {
