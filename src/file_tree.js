@@ -18,15 +18,13 @@ export default new Node("My Computer", "", "My Computer", [
         ]),
         new Node("folder", "File Folder", "temp", [
             new Node("file", "NOTE File", "temporary", []),
-            new Node("file", "NOTE File", "joooon", []),
             new Node("file", "NOTE File", "yes", []),
-            new Node("file", "NOTE File", "hello", [])
+            new Node("file", "NOTE File", "hello", []),
+            new Node("file", "NOTE File", "why")
         ]),
-        new Node("folder", "File Folder", "This_is_some_really_really_really_really_long_text", [
-            new Node("folder", "File Folder", "secret", [
-                new Node("file", "NOTE File", "fooled", []),
-                new Node("file", "NOTE File", "ya", [])
-            ])
+        new Node("folder", "File Folder", "secret", [
+            new Node("file", "NOTE File", "fooled", []),
+            new Node("file", "NOTE File", "ya", [])
         ]),
         new Node("file", "NOTE File", "remember", []),
         new Node("folder", "File Folder", "lots of folders", [
@@ -66,15 +64,20 @@ export default new Node("My Computer", "", "My Computer", [
             new Node("folder", "File Folder", "34", []),
 
         ]),
-        new Node("folder", "File Folder", "no", [
-            new Node("folder", "File Folder", "joonchicken", [
-                new Node("file", "NOTE File", "joonchicken.github.io", []),
-                new Node("file", "NOTE File", "beware those among us", [])
+        new Node("folder", "File Folder", "road work ahead", [
+            new Node("folder", "File Folder", "no", [
+                new Node("folder", "File Folder", "stop", [
+                    new Node("folder", "File Folder", "dont", [
+                        new Node("file", "NOTE File", "Beware those among us.note", [])
+                    ])
+                ])
             ])
         ]),
-        new Node("folder", "File Folder", "homework", [
+        new Node("folder", "File Folder", "testing", [
             new Node("folder", "File Folder", "temporary", []),
-            new Node("file", "NOTE File", "test", [])
+            new Node("folder", "File Folder", "test", [
+                new Node("file", "NOTE File", "")
+            ])
         ]),
         new Node("folder", "File Folder", ";)", [
             new Node("folder", "File Folder", ":(", [
@@ -113,6 +116,16 @@ export default new Node("My Computer", "", "My Computer", [
                         ])
                     ])
                 ])
+            ]),
+            new Node("folder", "File Folder", "Users", [
+                new Node("folder", "File Folder", "Joon", [
+                    new Node("folder", "File Folder", "Contacts", []),
+                    new Node("folder", "File Folder", "Documents", []),
+                    new Node("folder", "File Folder", "Downloads", []),
+                    new Node("folder", "File Folder", "Favorites", []),
+                    new Node("folder", "File Folder", "Music", [])
+                ]),
+                new Node("folder", "File Folder", "local", [])
             ])
         ])
     ])
