@@ -53,6 +53,10 @@ u {
 	text-decoration: solid underline 1.2px;
 }
 
+h3 {
+	margin: 15px 0px 0px;
+}
+
 .inline-link {
     margin: 0px 15px;
 }
@@ -659,23 +663,36 @@ u {
 }
 
 .explorer-description-sidebar > .file-icon {
-	margin-top: 17px;
 	width: 48px;
 	height: auto;
 }
 
+.explorer-description-sidebar > p {
+	margin: 0px;
+}
+
 .explorer-description-sidebar > h2 {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin: 5px 0px;
+	padding-right: 5px;
 	display: inline;
 	font-family: "large_windows", sans-serif;
 	font-size: 33px;
 	width: 100%;
+
+	text-wrap: wrap;
+	word-break: break-word;
+	display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .explorer-description-sidebar > .bar {
 	margin-left: -30px;
 	margin-bottom: 10px;
+	width: 100%;
 }
 
 
@@ -690,6 +707,9 @@ u {
 }
 
 .explorer-item {
+	font-family: inherit;
+	font-size: inherit;
+
 	background-color: inherit;
 	border: none;
 
@@ -720,9 +740,9 @@ u {
 	line-height: 1.2rem;
 	max-width: 95px;
 	text-align: center;
+	
 	text-wrap: wrap;
 	word-break: break-word;
-
 	display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;

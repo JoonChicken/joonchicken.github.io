@@ -1,51 +1,51 @@
 class Node {
-    constructor(type, name, children) {
-        this.type = type;
+    constructor(category, type, name, children) {
+        this.category = category;
+        this.type = type
         this.name = name;
         this.selected = false;
         this.children = children;
     }
 }
 
-export default [
-    new Node("folder", "projects", [
-        new Node("folder", "joonchicken.github.io", [
-            new Node("file", "joonchicken.github.io", []),
-            new Node("file", "about", [])
-        ])
-    ]),
-    new Node("folder", "temp", [
-        new Node("folder", "temporary", []),
-        new Node("file", "joooon", [])
-    ]),
-    new Node("folder", "This_is_some_really_quite_long_text", [
-        new Node("folder", "joonchicken.github.io", [
-            new Node("file", "joonchicken.github.io", []),
-            new Node("file", "about", [])
-        ])
-    ]),
-    new Node("file", "I, too, am in this episode", [
-        new Node("folder", "temporary", []),
-        new Node("file", "joooon", [])
-    ]),
-    new Node("folder", "lllllllllllllllllllllllllllllllllll", [
-        new Node("folder", "temporary", []),
-        new Node("file", "joooon", [])
-    ]),
-    new Node("folder", "no", [
-        new Node("folder", "joonchicken.github.io", [
-            new Node("file", "joonchicken.github.io", []),
-            new Node("file", "about", [])
-        ])
-    ]),
-    new Node("folder", "homework", [
-        new Node("folder", "temporary", []),
-        new Node("file", "joooon", [])
-    ]),
-    new Node("folder", ";)", [
-        new Node("folder", "joonchicken.github.io", [
-            new Node("file", "joonchicken.github.io", []),
-            new Node("file", "about", [])
+export default new Node("My Computer", "", "My Computer", [
+    new Node("drive", "Local Disk", "C:", [
+        new Node("folder", "File Folder", "projects", [
+            new Node("folder", "File Folder", "joonchicken.github.io", [
+                new Node("file", "NOTE File", "joonchicken.github.io", []),
+                new Node("file", "NOTE File", "about", [])
+            ])
+        ]),
+        new Node("folder", "File Folder", "temp", [
+            new Node("folder", "File Folder", "temporary", []),
+            new Node("file", "NOTE File", "joooon", [])
+        ]),
+        new Node("folder", "File Folder", "This_is_some_really_quite_long_text", [
+            new Node("folder", "File Folder", "joonchicken.github.io", [
+                new Node("file", "NOTE File", "joonchicken.github.io", []),
+                new Node("file", "NOTE File", "about", [])
+            ])
+        ]),
+        new Node("file", "NOTE File", "I, too, am in this episode", []),
+        new Node("folder", "File Folder", "lllllllllllllllllllllllllllllllllll", [
+            new Node("folder", "File Folder", "temporary", []),
+            new Node("file", "NOTE File", "joooon", [])
+        ]),
+        new Node("folder", "File Folder", "no", [
+            new Node("folder", "File Folder", "joonchicken.github.io", [
+                new Node("file", "NOTE File", "joonchicken.github.io", []),
+                new Node("file", "NOTE File", "about", [])
+            ])
+        ]),
+        new Node("folder", "File Folder", "homework", [
+            new Node("folder", "File Folder", "temporary", []),
+            new Node("file", "NOTE File", "joooon", [])
+        ]),
+        new Node("folder", "File Folder", ";)", [
+            new Node("folder", "File Folder", "joonchicken.github.io", [
+                new Node("file", "NOTE File", "joonchicken.github.io", []),
+                new Node("file", "NOTE File", "about", [])
+            ])
         ])
     ])
-]
+])
