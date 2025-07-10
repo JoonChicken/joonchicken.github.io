@@ -94,7 +94,7 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
                                 classes += focusedItemName.current === item.name ? " item-focused" : "";
 
                                 return <Item
-                                            key={item.id}
+                                            key={item.name}
                                             additionalClassName={classes}
                                             src={imgURLs[category]}
                                             name={item.name}

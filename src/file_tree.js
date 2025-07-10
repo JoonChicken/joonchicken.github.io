@@ -64,7 +64,7 @@ export default new Node("My Computer", "", "My Computer", [
             new Node("folder", "File Folder", "34", []),
 
         ]),
-        new Node("folder", "File Folder", "road work ahead", [
+        new Node("folder", "File Folder", "do not enter", [
             new Node("folder", "File Folder", "no", [
                 new Node("folder", "File Folder", "stop", [
                     new Node("folder", "File Folder", "dont", [
@@ -75,6 +75,8 @@ export default new Node("My Computer", "", "My Computer", [
         ]),
         new Node("folder", "File Folder", "testing", [
             new Node("folder", "File Folder", "temporary", []),
+            new Node("folder", "File Folder", "A very long name", []),
+            new Node("folder", "File Folder", "An even longer name for testing", []),
             new Node("folder", "File Folder", "test", [
                 new Node("file", "NOTE File", "")
             ])
@@ -116,17 +118,18 @@ export default new Node("My Computer", "", "My Computer", [
                         ])
                     ])
                 ])
-            ]),
-            new Node("folder", "File Folder", "Users", [
-                new Node("folder", "File Folder", "Joon", [
-                    new Node("folder", "File Folder", "Contacts", []),
-                    new Node("folder", "File Folder", "Documents", []),
-                    new Node("folder", "File Folder", "Downloads", []),
-                    new Node("folder", "File Folder", "Favorites", []),
-                    new Node("folder", "File Folder", "Music", [])
-                ]),
-                new Node("folder", "File Folder", "local", [])
             ])
+        ]),
+        new Node("folder", "File Folder", "Users", [
+            new Node("folder", "File Folder", "Joon", [
+                new Node("folder", "File Folder", "Contacts", []),
+                new Node("folder", "File Folder", "Documents", []),
+                new Node("folder", "File Folder", "Downloads", []),
+                new Node("folder", "File Folder", "Favorites", []),
+                new Node("folder", "File Folder", "Music", [])
+            ]),
+            new Node("folder", "File Folder", "local", [])
         ])
+        
     ])
 ])
