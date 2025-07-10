@@ -707,6 +707,12 @@ h3 {
 	justify-content: flex-start;
 }
 
+.explorer-item-spacer {
+	height: 110px;
+	width: 90px;
+	margin: 2px 6px;
+}
+
 .explorer-item {
 	font-family: inherit;
 	font-size: inherit;
@@ -714,9 +720,8 @@ h3 {
 	background-color: inherit;
 	border: none;
 
-	height: 110px;
+	max-height: 110px;
 	width: 90px;
-	margin: 2px 6px;
 
 	z-index: 0;
 	
