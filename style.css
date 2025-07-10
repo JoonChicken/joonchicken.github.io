@@ -19,7 +19,6 @@
 * {
 	box-sizing: border-box;
 	z-index: 0;
-	font-family: 'Times New Roman', Times, serif;
 }
 
 
@@ -299,6 +298,7 @@ h3 {
 }
 
 .content-panel, .content-panel-inner, .content-panel-body, .content-panel-body-outer, .content-panel-body-div {
+	font-family: 'Times New Roman', Times, serif;
 	overflow: hidden;
 }
 
@@ -342,6 +342,7 @@ h3 {
 }
 
 .panel-header-info {
+	font-family: "windows", sans-serif;
 	display:flex;
 	align-items:center;
 	flex-direction: row;
