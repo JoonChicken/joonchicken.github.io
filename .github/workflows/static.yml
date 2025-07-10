@@ -45,6 +45,16 @@ jobs:
         run: cp ./arts.html ./dist
       - name: Copy Style
         run: cp ./style.css ./dist
+
+      - name: Copy Footer JS
+        run: cp ./footer.js ./dist
+      - name: Copy Interactiv Controls JS
+        run: cp ./interactive_controls.js ./dist
+      - name: Copy Window Resize JS
+        run: cp ./on_window_resize.js ./dist
+      - name: Copy Windows JS
+        run: cp ./windows.js ./dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

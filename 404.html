@@ -14,8 +14,8 @@
 			  src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
 			  integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
 			  crossorigin="anonymous"></script>
-    <script src="/scripts/on_window_resize.js" type="module"></script>
-    <script src="/scripts/windows.js" defer></script>
+    <script src="/on_window_resize.js" type="module"></script>
+    <script src="/windows.js" defer></script>
 	  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
   </head>
 
@@ -34,6 +34,36 @@
     </div>
 
     <div id="body-wrapper" style="height: 100vh; display:flex; align-items: center; justify-content: center;">
+
+      <div class="content-panel" style="width: 70vh; height: 60vh">
+        <div class="content-panel-inner" height="auto">
+          <div class="content-panel-header" height="auto">
+            <div class="panel-header-info">
+              <img class="panel-icon" src="/images/info_small.ico" height="18px">
+              <div>
+                About Me
+              </div>
+            </div>
+            <div class="panel-header-x">✖</div>
+          </div>
+          <div class="content-panel-body-outer">
+            <div class="content-panel-body">
+              <div class="content-panel-body-div" style="padding: 30px 110px 20px 65px; height: 100%; width: 100%;">
+                <h2>Hi!</h2>
+                <p class="default-body">My name is Joon, and I'm a CS undergrad at Tufts University. Welcome to my portfolio website!</p>
+                <p class="default-body">I'm still trying to work out what aspects of CS I'm most interested in, so in the meantime, I'm trying lots of new things, like making this website completely from scratch!</p>
+                <p class="default-body">I can work confidently in C++ and Python, and I'm currently getting the hang of JavaScript and the React framework.</p>
+                <p class="default-body">Thanks for stopping by!</p>
+                <div style="position: absolute; right: 110px; bottom:45px;">
+                    <img src="/images/signature.png" alt="Joon Heo" style="margin: 0px; height: 55px;">
+                    <p style="margin: -5px; color: #bbb; text-align: right;">That's me! ==&gt;</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="content-panel" style="width: 70vh; height: 60vh">
         <div class="content-panel-inner" height="auto">
           <div class="content-panel-header" height="auto">
