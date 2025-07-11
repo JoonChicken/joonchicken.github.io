@@ -22,7 +22,7 @@ function findNodeWithPath(pathArray) {
 
 
 export default function App() {
-    const [path, setPath] = useState([]);
+    const [path, setPath] = useState(["C:"]);
     const [currentDir, setCurrentDir] = useState(findNodeWithPath(path));
     const history = useRef([]);
     const backtrackHistory = useRef([]);
