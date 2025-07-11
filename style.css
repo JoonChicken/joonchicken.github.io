@@ -647,6 +647,7 @@ h3 {
 /* Item management -------------------------------------*/
 
 .viewport {
+	font-family: "windows", 'Times New Roman', Times, serif;
 	display: flex;
 	height: 100%;
 }
