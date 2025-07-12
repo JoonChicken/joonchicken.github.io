@@ -306,7 +306,7 @@ h3 {
 	padding: 0;
 	border-width: 2px;
 	border-style: outset;
-	border-color: rgb(198, 214, 208);
+	border-color: var(--panel-main-col);
 }
 
 .content-panel {
@@ -338,7 +338,7 @@ h3 {
 	background-image: linear-gradient(.25turn, rgb(0, 126, 40), 60%, rgb(0, 242, 93));
 	border-width: 0px 0px 3px 0px;
 	border-style: solid;
-	border-color: rgb(198, 214, 208);
+	border-color: var(--panel-main-col);
 }
 
 .panel-header-info {
@@ -781,6 +781,11 @@ h3 {
 }
 
 /*#endregion*/
+
+
+.doScroll {
+	overflow: scroll;
+}
 
 
 

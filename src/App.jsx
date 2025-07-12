@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import file_tree from "/src/file_tree.js"
-import { new_window } from "/windows.js"
+import { create_window } from "/windows.js"
 
 import Menubar from "/src/Menubar.jsx"
 import Navbar from "/src/Navbar.jsx"
@@ -39,7 +39,7 @@ export default function App() {
         const selectedNode = findNodeWithPath(pathOfSelected)
         if (selectedNode.category === "file") {
             // should I use useEffect for external stuff??
-            new_window(e.currentTarget.querySelector("p").innerText);
+            create_window(e.currentTarget.querySelector("p").innerText);
         } else if (selectedNode.category === "trojan") {
             console.log("yikes!");
             

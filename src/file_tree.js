@@ -12,21 +12,21 @@ export default new Node("My Computer", "", "My Computer", [
     new Node("drive", "Local Disk", "C:", [
         new Node("folder", "File Folder", "projects", [
             new Node("folder", "File Folder", "joonchicken.github.io", [
-                new Node("file", "NOTE File", "joonchicken.github.io", []),
-                new Node("file", "NOTE File", "about", [])
+                new Node("file", "NOTE File", "joonchicken.github.io.note", []),
+                new Node("file", "NOTE File", "about.note", [])
             ])
         ]),
         new Node("folder", "File Folder", "temp", [
-            new Node("file", "NOTE File", "temporary", []),
-            new Node("file", "NOTE File", "yes", []),
-            new Node("file", "NOTE File", "hello", []),
-            new Node("file", "NOTE File", "why")
+            new Node("file", "NOTE File", "temporary.note", []),
+            new Node("file", "NOTE File", "yes.note", []),
+            new Node("file", "NOTE File", "hello.note", []),
+            new Node("file", "NOTE File", "why.note")
         ]),
         new Node("folder", "File Folder", "secret", [
-            new Node("file", "NOTE File", "fooled", []),
-            new Node("file", "NOTE File", "ya", [])
+            new Node("file", "NOTE File", "fooled.note", []),
+            new Node("file", "NOTE File", "ya.note", [])
         ]),
-        new Node("file", "NOTE File", "remember", []),
+        new Node("file", "NOTE File", "remember.note", []),
         new Node("folder", "File Folder", "lots of folders", [
             new Node("folder", "File Folder", "1", []),
             new Node("folder", "File Folder", "2", []),
@@ -74,11 +74,11 @@ export default new Node("My Computer", "", "My Computer", [
             ])
         ]),
         new Node("folder", "File Folder", "testing", [
-            new Node("folder", "File Folder", "temporary", []),
+            new Node("file", "NOTE File", "gatsby.note", []),
             new Node("folder", "File Folder", "A very long name", []),
             new Node("folder", "File Folder", "An even longer name for testing", []),
             new Node("folder", "File Folder", "test", [
-                new Node("file", "NOTE File", "")
+                new Node("file", "NOTE File", "blank.note")
             ])
         ]),
         new Node("folder", "File Folder", ";)", [
