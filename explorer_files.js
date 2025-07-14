@@ -1,7 +1,37 @@
 export const files = {
-    "sample_filename.note" : "",
-    "remember.note" : "<h1>Remember This</h1>",
-    "gatsby.note" : `<div style="margin: 2px">
+    "about.note" : "Copyright ©2025 Joon Heo",
+    "temporary.note" : `01d3fca2a598218b3cfa176b4091c600
+                        1e8f00f320cd2f1699c272db23dcbdb7
+                        6a7c05c7ea6ca30905b9900d4e5a9882
+                        2ee193231a04915dc82f1f05076ffcb0
+                        2001b3eea7f98a90f4dafcb1f18937f3
+                        0f5e51e1f577dc484d72c820faff9a15
+                        ce28f7906487df7277d15cfd7a8b4adf
+                        c1f4f4284c32ea58bcced834ee34555a
+                        ebe0ef666186e30a3577b8855fb8e381
+                        52ea9457af4eaffc5bd065f8fcc0706f`,
+    "blank.note" : "",
+    "fooled.note" : "",
+    "ya.note" : "SSN: 963-50-3233",
+    "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
+    "remember.note" : `
+        <h1>Remember...</h1>
+        <ul>
+            <li>2 carrot...</li>
+            <li>pineapple...</li>
+            <li>"spicy" HDMI cable (11")...</li>
+            <li>3 gallons mayonnaise...</li>
+            <li>WD-40...</li>
+            <li>5 cent euro coin...</li>
+            <li>meat thermometer...</li>
+            <li>plastic bag...</li>
+            <li>00 flour...</li>
+            <li>apple cider vinegar...</li>
+            <li>BEWARE BEWARE BEWARE...</li>
+            <ul><li>sus is near</li></ul>
+        </ul>
+    `,
+    "gatsby.note" : `
     
     The Project Gutenberg eBook of The Great Gatsby
     
@@ -6781,7 +6811,5 @@ facility: www.gutenberg.org.
 This website includes information about Project Gutenberg™,
 including how to make donations to the Project Gutenberg Literary
 Archive Foundation, how to help produce our new eBooks, and how to
-subscribe to our email newsletter to hear about new eBooks.
-
-</div>`
+subscribe to our email newsletter to hear about new eBooks.`
 }

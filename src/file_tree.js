@@ -10,6 +10,15 @@ class Node {
 
 export default new Node("My Computer", "", "My Computer", [
     new Node("drive", "Local Disk", "C:", [
+        new Node("folder", "File Folder", "do not enter", [
+            new Node("folder", "File Folder", "no", [
+                new Node("folder", "File Folder", "stop", [
+                    new Node("folder", "File Folder", "dont", [
+                        new Node("file", "JPEG File", "💀.jpg", [])
+                    ])
+                ])
+            ])
+        ]),
         new Node("folder", "File Folder", "projects", [
             new Node("folder", "File Folder", "joonchicken.github.io", [
                 new Node("file", "NOTE File", "joonchicken.github.io.note", []),
@@ -17,61 +26,14 @@ export default new Node("My Computer", "", "My Computer", [
             ])
         ]),
         new Node("folder", "File Folder", "temp", [
+            new Node("folder", "File Folder", "secret", [
+                new Node("file", "NOTE File", "fooled.note", []),
+                new Node("file", "NOTE File", "ya.note", [])
+            ]),
             new Node("file", "NOTE File", "temporary.note", []),
             new Node("file", "NOTE File", "yes.note", []),
             new Node("file", "NOTE File", "hello.note", []),
             new Node("file", "NOTE File", "why.note")
-        ]),
-        new Node("folder", "File Folder", "secret", [
-            new Node("file", "NOTE File", "fooled.note", []),
-            new Node("file", "NOTE File", "ya.note", [])
-        ]),
-        new Node("file", "NOTE File", "remember.note", []),
-        new Node("folder", "File Folder", "lots of folders", [
-            new Node("folder", "File Folder", "1", []),
-            new Node("folder", "File Folder", "2", []),
-            new Node("folder", "File Folder", "3", []),
-            new Node("folder", "File Folder", "4", []),
-            new Node("folder", "File Folder", "5", []),
-            new Node("folder", "File Folder", "6", []),
-            new Node("folder", "File Folder", "7", []),
-            new Node("folder", "File Folder", "8", []),
-            new Node("folder", "File Folder", "9", []),
-            new Node("folder", "File Folder", "10", []),
-            new Node("folder", "File Folder", "11", []),
-            new Node("folder", "File Folder", "12", []),
-            new Node("folder", "File Folder", "13", []),
-            new Node("folder", "File Folder", "14", []),
-            new Node("folder", "File Folder", "15", []),
-            new Node("folder", "File Folder", "16", []),
-            new Node("folder", "File Folder", "17", []),
-            new Node("folder", "File Folder", "18", []),
-            new Node("folder", "File Folder", "19", []),
-            new Node("folder", "File Folder", "20", []),
-            new Node("folder", "File Folder", "21", []),
-            new Node("folder", "File Folder", "22", []),
-            new Node("folder", "File Folder", "23", []),
-            new Node("folder", "File Folder", "24", []),
-            new Node("folder", "File Folder", "25", []),
-            new Node("folder", "File Folder", "26", []),
-            new Node("folder", "File Folder", "27", []),
-            new Node("folder", "File Folder", "28", []),
-            new Node("folder", "File Folder", "29", []),
-            new Node("folder", "File Folder", "30", []),
-            new Node("folder", "File Folder", "31", []),
-            new Node("folder", "File Folder", "32", []),
-            new Node("folder", "File Folder", "33", []),
-            new Node("folder", "File Folder", "34", []),
-
-        ]),
-        new Node("folder", "File Folder", "do not enter", [
-            new Node("folder", "File Folder", "no", [
-                new Node("folder", "File Folder", "stop", [
-                    new Node("folder", "File Folder", "dont", [
-                        new Node("file", "NOTE File", "Beware those among us.note", [])
-                    ])
-                ])
-            ])
         ]),
         new Node("folder", "File Folder", "testing", [
             new Node("file", "NOTE File", "gatsby.note", []),
@@ -79,7 +41,53 @@ export default new Node("My Computer", "", "My Computer", [
             new Node("folder", "File Folder", "An even longer name for testing", []),
             new Node("folder", "File Folder", "test", [
                 new Node("file", "NOTE File", "blank.note")
-            ])
+            ]),
+            new Node("folder", "File Folder", "lots of folders", [
+                new Node("folder", "File Folder", "1", []),
+                new Node("folder", "File Folder", "2", []),
+                new Node("folder", "File Folder", "3", []),
+                new Node("folder", "File Folder", "4", []),
+                new Node("folder", "File Folder", "5", []),
+                new Node("folder", "File Folder", "6", []),
+                new Node("folder", "File Folder", "7", []),
+                new Node("folder", "File Folder", "8", []),
+                new Node("folder", "File Folder", "9", []),
+                new Node("folder", "File Folder", "10", []),
+                new Node("folder", "File Folder", "11", []),
+                new Node("folder", "File Folder", "12", []),
+                new Node("folder", "File Folder", "13", []),
+                new Node("folder", "File Folder", "14", []),
+                new Node("folder", "File Folder", "15", []),
+                new Node("folder", "File Folder", "16", []),
+                new Node("folder", "File Folder", "17", []),
+                new Node("folder", "File Folder", "18", []),
+                new Node("folder", "File Folder", "19", []),
+                new Node("folder", "File Folder", "20", []),
+                new Node("folder", "File Folder", "21", []),
+                new Node("folder", "File Folder", "22", []),
+                new Node("folder", "File Folder", "23", []),
+                new Node("folder", "File Folder", "24", []),
+                new Node("folder", "File Folder", "25", []),
+                new Node("folder", "File Folder", "26", []),
+                new Node("folder", "File Folder", "27", []),
+                new Node("folder", "File Folder", "28", []),
+                new Node("folder", "File Folder", "29", []),
+                new Node("folder", "File Folder", "30", []),
+                new Node("folder", "File Folder", "31", []),
+                new Node("folder", "File Folder", "32", []),
+                new Node("folder", "File Folder", "33", []),
+                new Node("folder", "File Folder", "34", []),
+            ]),
+        ]),
+        new Node("folder", "File Folder", "Users", [
+            new Node("folder", "File Folder", "Joon", [
+                new Node("folder", "File Folder", "Contacts", []),
+                new Node("folder", "File Folder", "Documents", []),
+                new Node("folder", "File Folder", "Downloads", []),
+                new Node("folder", "File Folder", "Favorites", []),
+                new Node("folder", "File Folder", "Music", [])
+            ]),
+            new Node("folder", "File Folder", "local", [])
         ]),
         new Node("folder", "File Folder", ";)", [
             new Node("folder", "File Folder", ":(", [
@@ -120,16 +128,6 @@ export default new Node("My Computer", "", "My Computer", [
                 ])
             ])
         ]),
-        new Node("folder", "File Folder", "Users", [
-            new Node("folder", "File Folder", "Joon", [
-                new Node("folder", "File Folder", "Contacts", []),
-                new Node("folder", "File Folder", "Documents", []),
-                new Node("folder", "File Folder", "Downloads", []),
-                new Node("folder", "File Folder", "Favorites", []),
-                new Node("folder", "File Folder", "Music", [])
-            ]),
-            new Node("folder", "File Folder", "local", [])
-        ])
-        
+        new Node("file", "NOTE File", "remember.note", [])
     ])
 ])
