@@ -1,25 +1,5 @@
 import { files } from "/explorer_files.js";
 
-// ==============  Draggable stuff  =========================
-
-$(".content-panel-header").disableSelection();
-$(".panel-header-x").disableSelection();
-
-const content_panels = document.getElementsByClassName("content-panel");
-for (let i = 0; i < content_panels.length; i++) {
-    content_panels[i].style.width = "" + content_panels[i].clientWidth + "px";
-    content_panels[i].style.height = "" + content_panels[i].clientHeight + "px";
-}
-$(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x", distance: "0"});
-
-
-$(".panel-header-x").on("click", function() {
-    $(this).closest(".content-panel").remove();
-});
-
-
-// ============  Focus on mousedown  =======================
-
 let windows = [];
 
 function layer_windows() {
@@ -28,35 +8,61 @@ function layer_windows() {
     }
 }
 
-$(".content-panel.ui-draggable").map(function() {
-    windows.push(this);
-});
+addEventListener("load", (e) => {
 
-$(".content-panel.ui-draggable").on("mousedown", function() {
-    windows = windows.filter(element => element != this);
-    windows.push(this);
-    layer_windows();
+    // ==============  Draggable stuff  =========================
+
+    $(".content-panel-header").disableSelection();
+    $(".panel-header-x").disableSelection();
+
+    const content_panels = document.getElementsByClassName("content-panel");
+    for (let i = 0; i < content_panels.length; i++) {
+        content_panels[i].style.width = "" + content_panels[i].clientWidth + "px";
+        content_panels[i].style.height = "" + content_panels[i].clientHeight + "px";
+    }
+    $(".content-panel").draggable({handle: ".content-panel-header", cancel: ".panel-header-x", distance: "0"});
+
+
+    $(".panel-header-x").on("click", function() {
+        $(this).closest(".content-panel").remove();
+    });
+
+
+    // ============  Focus on mousedown  =======================
+
+    $(".content-panel.ui-draggable").map(function() {
+        windows.push(this);
+    });
+
+    $(".content-panel.ui-draggable").on("mousedown", function() {
+        windows = windows.filter(element => element != this);
+        windows.push(this);
+        layer_windows();
+    });
+
 });
 
 // ===========  Create new windows  ==========================
 
-const window_icons = {
-    "note" : "/images/note_viewer.ico",
-    "png" : "/images/photo.ico"
-    
-};
+    const window_icons = {
+        "note" : "/images/note_viewer.ico",
+        "jpg" : "/images/photo.ico"
+        
+    };
 
-const window_title = {
-    "note": "Note Viewer",
-    "png" : "Image Viewer"
-};
+    const window_title = {
+        "note": "Note Viewer",
+        "jpg" : "Image Viewer"
+    };
 
-const window_sizes = { // width, height
-    "note": [480, 500]
-}
+    const window_sizes = { // width, height
+        "note": [480, 500],
+        "jpg": [800, 600]
+    }
 
 export function create_window(filename) {
-    const type = filename.split(".")[1];
+    const filenameArray = filename.split(".");
+    const type = filenameArray[filenameArray.length - 1];
     const numUntouched = $(".untouched").length;
     const top = 890 + numUntouched * 20;
     const marginL = -350 + numUntouched * 20;
@@ -73,8 +79,10 @@ export function create_window(filename) {
                     <div class="panel-header-x">✖</div>
                 </div>
                 <div class="content-panel-body-outer">
-                    <div class="content-panel-body doScroll">
-                        ${files[filename]}
+                    <div class="content-panel-body doScroll" ${type == "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}>
+                        ${type !== "jpg" ? `<div style="padding: 10px">` : ""}
+                            ${files[filename]}
+                        ${type !== "jpg" ? `</div>` : ""}
                     </div>
                 </div>
             </div>
