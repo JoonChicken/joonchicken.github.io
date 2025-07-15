@@ -1,5 +1,18 @@
 export const files = {
+    "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
+
+    "joonchicken.github.io.note" : `
+
+    `,
+
     "about.note" : "Copyright ©2025 Joon Heo",
+
+    "blank.note" : "",
+
+    "fooled.note" : "",
+
+    "ya.note" : "SSN: 963-50-3233",
+
     "temporary.note" : `01d3fca2a598218b3cfa176b4091c600
                         1e8f00f320cd2f1699c272db23dcbdb7
                         6a7c05c7ea6ca30905b9900d4e5a9882
@@ -10,10 +23,33 @@ export const files = {
                         c1f4f4284c32ea58bcced834ee34555a
                         ebe0ef666186e30a3577b8855fb8e381
                         52ea9457af4eaffc5bd065f8fcc0706f`,
-    "blank.note" : "",
-    "fooled.note" : "",
-    "ya.note" : "SSN: 963-50-3233",
-    "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
+
+    "yes.note" : `
+        <div class ="marquee" style="height: 1000px; overflow: hidden">
+            <div class="marquee-content">
+                <h1>
+                    Yes.
+                </h1>
+            </div>
+        </div>
+    `,
+
+    "hello.note" : `
+        <div style="display: flex; justify-content: center;">
+        <h1 style="font-size: 350px; margin: 0px">
+            HI
+        </h1>
+    `,
+
+    "why.note" : `
+        <img src="/images/not_a_kiwi.jpg" style="width: 100%; height: 70%;">
+        <div class="center">
+            <h1 style="font-size: 100px; font-family: impact, 'Times New Roman', Times, serif; margin: 0px">
+                WHY????
+            </h1>
+        </div>
+    `,
+
     "remember.note" : `
         <h1>Remember...</h1>
         <ul>
@@ -31,6 +67,7 @@ export const files = {
             <ul><li>sus is near</li></ul>
         </ul>
     `,
+
     "gatsby.note" : `
     
     The Project Gutenberg eBook of The Great Gatsby

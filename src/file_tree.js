@@ -14,7 +14,7 @@ export default new Node("My Computer", "", "My Computer", [
             new Node("folder", "File Folder", "no", [
                 new Node("folder", "File Folder", "stop", [
                     new Node("folder", "File Folder", "dont", [
-                        new Node("file", "JPEG File", "💀.jpg", [])
+                        new Node("file", "JPG File", "💀.jpg", [])
                     ])
                 ])
             ])
@@ -30,18 +30,13 @@ export default new Node("My Computer", "", "My Computer", [
                 new Node("file", "NOTE File", "fooled.note", []),
                 new Node("file", "NOTE File", "ya.note", [])
             ]),
-            new Node("file", "NOTE File", "temporary.note", []),
-            new Node("file", "NOTE File", "yes.note", []),
             new Node("file", "NOTE File", "hello.note", []),
-            new Node("file", "NOTE File", "why.note")
+            new Node("file", "NOTE File", "why.note"),
+            new Node("file", "NOTE File", "yes.note", [])
         ]),
         new Node("folder", "File Folder", "testing", [
-            new Node("file", "NOTE File", "gatsby.note", []),
             new Node("folder", "File Folder", "A very long name", []),
             new Node("folder", "File Folder", "An even longer name for testing", []),
-            new Node("folder", "File Folder", "test", [
-                new Node("file", "NOTE File", "blank.note")
-            ]),
             new Node("folder", "File Folder", "lots of folders", [
                 new Node("folder", "File Folder", "1", []),
                 new Node("folder", "File Folder", "2", []),
@@ -78,6 +73,10 @@ export default new Node("My Computer", "", "My Computer", [
                 new Node("folder", "File Folder", "33", []),
                 new Node("folder", "File Folder", "34", []),
             ]),
+            new Node("folder", "File Folder", "nothing here", [
+                new Node("file", "NOTE File", "blank.note")
+            ]),
+            new Node("file", "NOTE File", "gatsby.note", [])
         ]),
         new Node("folder", "File Folder", "Users", [
             new Node("folder", "File Folder", "Joon", [
