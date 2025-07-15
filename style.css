@@ -18,6 +18,8 @@
 
 * {
 	box-sizing: border-box;
+	font-smooth: never;
+	-webkit-font-smoothing: none;
 	z-index: 0;
 }
 
@@ -37,6 +39,7 @@ body {
 
 .center {
     display: flex;
+	flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -96,6 +99,11 @@ h3 {
 	src: url("/fonts/matrix-sans.otf");
 }
 
+@font-face {
+	font-family: "impact";
+	src: url("/fonts/impact.ttf");
+}
+
 .flex-container {
 	display: flex;
 	flex-wrap: nowrap;
@@ -147,7 +155,7 @@ h3 {
 /*========== Interactive Control ==============*/
 
 #control-wrapper {
-	z-index: 9999999;
+	z-index: 9999;
 	position: fixed;
 	top: 100px;
 	left: 0;
@@ -358,8 +366,8 @@ h3 {
 	font-size: small;
 	text-align: center;
 	line-height: 15px;
-	width: 22px;
-	height: 19px;
+	width: 20px;
+	height: 18px;
 	background-color: var(--panel-main-col);
 	border-left-color: var(--panel-top-bevel);
 	border-top-color: var(--panel-top-bevel);
@@ -782,11 +790,31 @@ h3 {
 
 /*#endregion*/
 
+/*#region
+	spawned windows
+*/
 
 .doScroll {
 	overflow: scroll;
 }
 
+.marquee-content {
+	animation-duration: 15s ;
+	animation-iteration-count: infinite ;
+	animation-name: marquee-content ;
+	animation-timing-function: linear ;
+}
+
+@keyframes marquee-content {
+	from {
+		transform: translateY( -50px );
+	}
+	to {
+		transform: translateY( 1050px );
+	}
+}
+
+/*#endregion */
 
 
 /*#region Footer */

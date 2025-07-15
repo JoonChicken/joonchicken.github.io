@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import file_tree from "/src/file_tree.js"
-import { create_window } from "/windows.js"
+import { create_window, run_trojan } from "/windows.js"
 
 import Menubar from "/src/Menubar.jsx"
 import Navbar from "/src/Navbar.jsx"
@@ -41,8 +41,7 @@ export default function App() {
             // should I use useEffect for external stuff??
             create_window(e.currentTarget.querySelector("p").innerText);
         } else if (selectedNode.category === "trojan") {
-            console.log("yikes!");
-            
+            run_trojan();
         } else {
             backtrackHistory.current = []
             history.current.push(path);

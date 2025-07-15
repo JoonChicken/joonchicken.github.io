@@ -1,5 +1,9 @@
 import { files } from "/explorer_files.js";
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 let windows = [];
 
 function layer_windows() {
@@ -8,7 +12,7 @@ function layer_windows() {
     }
 }
 
-addEventListener("load", (e) => {
+addEventListener("load", () => {
 
     // ==============  Draggable stuff  =========================
 
@@ -60,9 +64,17 @@ addEventListener("load", (e) => {
         "jpg": [800, 600]
     }
 
-export function create_window(filename) {
+export async function create_window(filename) {
     const filenameArray = filename.split(".");
     const type = filenameArray[filenameArray.length - 1];
+
+    let cursorChanger = $(`<div></div>`, {
+        id: "c-div",
+        style : `z-index: 999999; position: fixed; cursor: wait; height: 100%; width: 100%; opacity: 0%;`
+    });
+    $("body").prepend(cursorChanger);
+    await sleep(type !== "jpg" ? 80 : 2000);
+    
     const numUntouched = $(".untouched").length;
     const top = 890 + numUntouched * 20;
     const marginL = -350 + numUntouched * 20;
@@ -80,9 +92,9 @@ export function create_window(filename) {
                 </div>
                 <div class="content-panel-body-outer">
                     <div class="content-panel-body doScroll" ${type == "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}>
-                        ${type !== "jpg" ? `<div style="padding: 10px">` : ""}
+                        ${type === "note" ? `<div style="padding: 10px; height: 100%">` : ""}
                             ${files[filename]}
-                        ${type !== "jpg" ? `</div>` : ""}
+                        ${type === "note" ? `</div>` : ""}
                     </div>
                 </div>
             </div>
@@ -108,4 +120,42 @@ export function create_window(filename) {
     newWindow.attr("id", "");
     windows.push(window[0]);
     layer_windows();
+    $("#c-div").remove();
+}
+
+// =====  trojan easter egg  =====
+
+export async function run_trojan() {
+    console.log("Downloading McAfee SecureSearch...");
+    let trojanElement = $(`<div></div>`, {
+        id: "t-div",
+        style : `z-index: 99999; position: fixed; cursor: wait; height: 100%; width: 100%;
+                background-color: white; opacity: 0%;`
+    });
+    $("body").prepend(trojanElement);
+    await sleep(1000);
+    console.log("Progress: [....................] 0%");
+    await sleep(1000);
+    console.log("Progress: [....................] 3%");
+    await sleep(600);
+    console.log("Progress: [#...................] 5%");
+    await sleep(600);
+    console.log("Progress: [####................] 21%");
+    await sleep(600);
+    console.log("Progress: [######..............] 34%");
+    let opacity = 0;
+    while (opacity < 0.5) {
+        opacity += 0.03;
+        await sleep(20);
+        $("#t-div").css("opacity", `${opacity}`);
+    }
+    await sleep(6100);
+    $("#t-div").css("opacity", "0%");
+    console.log("Progress: [###################.] 93%");
+    await sleep(200);
+    console.log("Progress: [####################] 100%");
+    console.log("Installing...");
+    await sleep(3200);
+    $("#t-div").remove();
+    console.log("McAfee SecureSearch successfully installed. Please restart your browser for changes to take effect.");
 }
