@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="utf-8">
+    <title>The Evil Machinations of Joon Heo</title>
+    <meta name="The portfolio site of Joon Heo. Programmer and artist. Most definitely not a chicken.">
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.min.js"
+			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			  crossorigin="anonymous"
+        defer ></script>
+    <script
+			  src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+			  integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
+			  crossorigin="anonymous"
+        defer ></script>
+    <script src="/on_window_resize.js" type="module" defer></script>
+    <script src="/interactive_controls.js" defer></script>
+    <script src="/windows.js" defer></script>
+    <script src="/footer.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
+	  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+  </head>
+
+  <body>
+    <!-- background canvas -->
+    <div id="starry-wrapper">
+      <canvas id="starry-canvas">
+      </canvas>
+    </div>  
+
+    <!-- interactives control -->
+    <div id="control-wrapper">
+      <span class="control-panel" id="interactives-control">
+        Coming soon: <br>
+        Making the sky texture interactive! <br>
+        <button>:&#41;</button>  
+        <button>:&#40;</button>
+      </span>
+      <span id="control-hover">
+        <img src="/images/gear.webp" width="100%" height="100%"/>
+      </span>
+    </div>
+
+    <div id="menubar-wrapper">
+      <div id="menubar-spacer">
+        <div class="menu-panel">
+          <!--main menubar flex container that distributes the left and right-->
+          <!--elements nicely:-->
+          <nav class="flex-container">
+            <div>
+              <a href="/" id="homepage-link">
+                <div id="logo-button-flex-container">
+                  <div>
+                    <img id="button-home-image" alt="home button" src="images/logo.png"/>
+                  </div>
+                  <div id="title-text-top-container">
+                    <b id="title-text-top">The Evil Machinations of</b>
+                  </div> 
+                  <div id="title-text-bottom-container">
+                    <b id="title-text-bottom">Joon Heo</b>
+                  </div>
+                </div>  
+              </a>
+            </div>
+            <div> <!--another flex item-->
+              <!--Other menu bar items-->
+              <div id="menu-buttons-flex-container">
+                <div>
+                  <!--<a class="menu-button" href="./projects.html"><b>Projects</b></a>-->
+                </div>
+                <div>
+                  <a class="menu-button-image" href="https://github.com/JoonChicken">
+                    <img src="images/github-mark-white.svg" alt="visit my github" height="25px" />
+                  </a>
+                </div>
+                <div>
+                  <a class="menu-button-image" href="https://www.linkedin.com/in/joon-heo/">
+                    <img src="images/LinkedIn.webp" alt="visit my linkedin" height="25px" />
+                  </a>
+                </div>
+              </div>
+              <!----------------------->
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="DEBUG" style="width: 800px; height: 2000px; background-color: rgba(255, 0, 0, 0.333); margin: auto;">
+        <div class="DEBUG" style="width: 640px; height: 2000px; background-color: #ff05; margin: auto;"></div>
+    </div>-->
+
+
+    <div id="body-wrapper" style="height: 2000px;">
+
+
+      <div id="videos" class="content-panel" style="width: 850px; height: 1410px; margin-left: -425px; top: 260px">
+        <div class="content-panel-inner" height="auto">
+          <div class="content-panel-header" height="auto">
+            <div class="panel-header-info">
+              <img class="panel-icon" src="/images/multimedia.ico" height="18px">
+              <div>
+                Multimedia Viewer
+              </div>
+            </div>
+            <div class="panel-header-x">✖</div>
+          </div>
+          <div class="content-panel-body-outer">
+            <div class="content-panel-body" style="display: flex; flex-direction: column; justify-content: top; align-items: center;">
+              <h1>Videos</h1>
+              <iframe width="720" height="405" src="https://www.youtube.com/embed/gCue-BKgCpg?si=CVHSfxfM7Oww_On5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="720" height="405" src="https://www.youtube.com/embed/sRjGrr2vfGM?si=zzZ7jOv4CgzJ74N7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="720" height="405" src="https://www.youtube.com/embed/d04W_Yr7y34?si=pl6hF7O0ptmPcDer" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="images" class="content-panel" style="width: 850px; height: 250px; margin-left: -425px; top: 1750px">
+        <div class="content-panel-inner" height="auto">
+          <div class="content-panel-header" height="auto">
+            <div class="panel-header-info">
+              <img class="panel-icon" src="/images/multimedia.ico" height="18px">
+              <div>
+                Multimedia Viewer
+              </div>
+            </div>
+            <div class="panel-header-x">✖</div>
+          </div>
+          <div class="content-panel-body-outer">
+            <div class="content-panel-body" style="display: flex; flex-direction: column; justify-content: top; align-items: center;">
+              <h1>Images</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="writing" class="content-panel" style="width: 850px; height: 250px; margin-left: -425px; top: 2000px">
+        <div class="content-panel-inner" height="auto">
+          <div class="content-panel-header" height="auto">
+            <div class="panel-header-info">
+              <img class="panel-icon" src="/images/multimedia.ico" height="18px">
+              <div>
+                Multimedia Viewer
+              </div>
+            </div>
+            <div class="panel-header-x">✖</div>
+          </div>
+          <div class="content-panel-body-outer">
+            <div class="content-panel-body" style="display: flex; flex-direction: column; justify-content: top; align-items: center;">
+              <h1>Writing</h1>
+              [embed document??]
+            </div>
+          </div>
+        </div>
+      </div>  
+
+
+
+    </div>
+
+    <!--footer transition image-->
+    <div id="footer-transition-wrapper" class="ui-image-full-width" height="300px">
+      <div id="footer-transition-repeat-left" style="height: 320px; width: 100%;">
+      </div>
+      <div id="footer-transition-main">
+        <img src="images/footer_chicken.png" width="100%" height="100%" />
+      </div>
+      <div id="footer-transition-repeat-right" style="height: 320px; width: 100%;">
+      </div>
+    </div>
+    <!--footer-->
+    <div id="footer-wrapper">
+      <div id="footer-filter">
+        <div id="footer-grass-transition"></div>
+        <div id="footer-spacer">
+          <div id="footer-text">
+            <p id="footer-emojis"></p>
+            <p id="footer-copyright"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
