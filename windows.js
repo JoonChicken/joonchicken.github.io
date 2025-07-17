@@ -50,18 +50,20 @@ addEventListener("load", () => {
 
     const window_icons = {
         "note" : "/images/note_viewer.ico",
-        "jpg" : "/images/photo.ico"
-        
+        "jpg" : "/images/photo.ico",
+        "exe" : ""        
     };
 
     const window_title = {
         "note": "Note Viewer",
-        "jpg" : "Image Viewer"
+        "jpg" : "Image Viewer",
+        "exe" : "Command Prompt" 
     };
 
     const window_sizes = { // width, height
-        "note": [480, 500],
-        "jpg": [800, 600]
+        "note": [540, 500],
+        "jpg": [800, 600],
+        "exe" : [600, 400]
     }
 
 export async function create_window(filename) {
@@ -91,10 +93,10 @@ export async function create_window(filename) {
                     <div class="panel-header-x">✖</div>
                 </div>
                 <div class="content-panel-body-outer">
-                    <div class="content-panel-body doScroll" ${type == "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}>
-                        ${type === "note" ? `<div style="padding: 10px; height: 100%">` : ""}
+                    <div class="content-panel-body doScroll"
+                        ${type == "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}
+                        ${type === "note" ? `style="padding: 10px; height: 100%"` : ""}>
                             ${files[filename]}
-                        ${type === "note" ? `</div>` : ""}
                     </div>
                 </div>
             </div>
@@ -121,9 +123,30 @@ export async function create_window(filename) {
     windows.push(window[0]);
     layer_windows();
     $("#c-div").remove();
+    return newWindow;
 }
 
 // =====  trojan easter egg  =====
+
+
+// thanks to geeks for geeks for the scrolling code
+function disableScroll() {
+    let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop;
+    let scrollLeft =
+        window.pageXOffset ||
+        document.documentElement.scrollLeft;
+    
+        window.onscroll = window.onwheel = function (e) {
+            e.preventDefault();
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+}
+
+function enableScroll() {
+    window.onscroll = window.onwheel = function () { };
+}
 
 export async function run_trojan() {
     console.log("Downloading McAfee SecureSearch...");
@@ -133,29 +156,37 @@ export async function run_trojan() {
                 background-color: white; opacity: 0%;`
     });
     $("body").prepend(trojanElement);
-    await sleep(1000);
+    await sleep(500);
+    let cmd_window;
+    create_window("trojan.exe").then(window => cmd_window = window);
+    console.log(cmd_window);
+    await sleep(200);
+    cmd_window.remove();
+    await sleep(300);
     console.log("Progress: [....................] 0%");
-    await sleep(1000);
+    await sleep(500);
     console.log("Progress: [....................] 3%");
-    await sleep(600);
+    await sleep(500);
     console.log("Progress: [#...................] 5%");
-    await sleep(600);
+    await sleep(500);
     console.log("Progress: [####................] 21%");
-    await sleep(600);
+    await sleep(500);
     console.log("Progress: [######..............] 34%");
+    disableScroll();
     let opacity = 0;
     while (opacity < 0.5) {
         opacity += 0.03;
         await sleep(20);
         $("#t-div").css("opacity", `${opacity}`);
     }
-    await sleep(6100);
+    await sleep(3000);
     $("#t-div").css("opacity", "0%");
+    enableScroll();
     console.log("Progress: [###################.] 93%");
     await sleep(200);
     console.log("Progress: [####################] 100%");
     console.log("Installing...");
-    await sleep(3200);
+    await sleep(2000);
     $("#t-div").remove();
     console.log("McAfee SecureSearch successfully installed. Please restart your browser for changes to take effect.");
 }
