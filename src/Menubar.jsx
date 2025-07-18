@@ -1,6 +1,6 @@
 export default function Menubar() {
     return (
-        <div className="explorer-controls-row explorer-menubar">
+        <div className="window-controls-row explorer-menubar">
             <div className="tactile-bump">&nbsp;</div>
             <p className="explorer-menubar-text"><u>F</u>ile</p>
             <p className="explorer-menubar-text"><u>E</u>dit</p>

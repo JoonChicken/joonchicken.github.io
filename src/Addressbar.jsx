@@ -7,9 +7,10 @@ export default function Addressbar({path, onAddressbarChanged}) {
     }
 
     // consider changing to read & write addressbar later
+    // using onAddressbarChanged function
 
     return (
-        <section className="explorer-controls-row explorer-addressbar">
+        <section className="window-controls-row explorer-addressbar">
             <div className="tactile-bump">&nbsp;</div>
             <span>Address</span>
             <div className="path-container">

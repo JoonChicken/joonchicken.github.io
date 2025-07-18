@@ -1,4 +1,9 @@
 import { files } from "/explorer_files.js";
+import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/highlight.min.js';
+import python from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/python.min.js';
+
+hljs.registerLanguage('python', python);
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -51,19 +56,22 @@ addEventListener("load", () => {
     const window_icons = {
         "note" : "/images/note_viewer.ico",
         "jpg" : "/images/photo.ico",
-        "exe" : ""        
+        "exe" : "/images/console.png",
+        "py" : "/images/python.png"
     };
 
     const window_title = {
         "note": "Note Viewer",
         "jpg" : "Image Viewer",
-        "exe" : "Command Prompt" 
+        "exe" : "Command Prompt",
+        "py" : "Note++"
     };
 
     const window_sizes = { // width, height
         "note": [540, 500],
         "jpg": [800, 600],
-        "exe" : [600, 400]
+        "exe" : [600, 400],
+        "py": [700, 600]
     }
 
 export async function create_window(filename) {
@@ -92,9 +100,23 @@ export async function create_window(filename) {
                     </div>
                     <div class="panel-header-x">✖</div>
                 </div>
+                ${type === "py" ? `
+                    <div class="window-controls-container">
+                        <div class="window-controls-row" style="height: 40px;">
+                            <div class="tactile-bump">&nbsp;</div>
+                            <a class="raised-button" href="/window_content/${filename}" aria-label="Download this Python file" download>
+                                <div class="raised-button-inner">Download</div>
+                            </a>
+                            <a class="raised-button disabled" aria-label="Run this Python file [Disabled]">
+                                <div class="raised-button-inner">Run</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="window-spacer"></div>
+                ` : ""}
                 <div class="content-panel-body-outer">
                     <div class="content-panel-body doScroll"
-                        ${type == "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}
+                        ${type === "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}
                         ${type === "note" ? `style="padding: 10px; height: 100%"` : ""}>
                             ${files[filename]}
                     </div>
@@ -123,7 +145,7 @@ export async function create_window(filename) {
     windows.push(window[0]);
     layer_windows();
     $("#c-div").remove();
-    return newWindow;
+    hljs.highlightAll();
 }
 
 // =====  trojan easter egg  =====

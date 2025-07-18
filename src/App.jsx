@@ -37,15 +37,14 @@ export default function App() {
         const pathOfSelected = [...path];
         pathOfSelected.push(e.currentTarget.querySelector("p").innerText);
         const selectedNode = findNodeWithPath(pathOfSelected)
-        if (selectedNode.category === "file") {
-            // should I use useEffect for external stuff??
-            create_window(e.currentTarget.querySelector("p").innerText);
-        } else if (selectedNode.category === "trojan") {
-            run_trojan();
-        } else {
-            backtrackHistory.current = []
+        if (selectedNode.type === "folder" || selectedNode.type === "drive") {
+            backtrackHistory.current = [];
             history.current.push(path);
             setPath(pathOfSelected);
+        } else if (selectedNode.type === "trojan") {
+            run_trojan();
+        } else {
+            create_window(e.currentTarget.querySelector("p").innerText);
         }
         e.stopPropagation();
     }
@@ -73,7 +72,7 @@ export default function App() {
 
     return (
         <>
-            <div className="explorer-controls-container">
+            <div className="window-controls-container">
                 <Menubar />
                 <Navbar onGoBack={onGoBack} onGoForward={onGoForward} onGoUp={onGoUp}
                         backDisabled={history.current.length === 0}
@@ -82,7 +81,7 @@ export default function App() {
                 />
                 <Addressbar path={path} onAddressbarChanged={onAddressbarChanged} />
             </div>
-            <div className="explorer-spacer"></div>
+            <div className="window-spacer"></div>
             <ExplorerViewport currentDir={currentDir} onItemDoubleClick={onItemDoubleClick} />
         </>
     );

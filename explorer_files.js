@@ -1,13 +1,26 @@
-async function getText(name, type) {
-    const resp = await fetch(`/window_content/${name}.${type}`);
+async function getText(filename) {
+    const resp = await fetch(`/window_content/${filename}`);
     let text = await resp.text();
     return text;
 }
 
 export const files = {
+
     "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
 
-    "joonchicken.github.io.note" : `${await getText("joonchicken.github.io", "html")}`,
+    "real.jpg" : `<img src="/images/real.png" style="width: auto; height: 100%" />`,
+
+    "math_algorithms.note" : `${await getText("math_algorithms.html")}`,
+
+    "joonchicken.github.io.note" : `${await getText("joonchicken.github.io.html")}`,
+
+    "Darcy.py" :  `<pre><code>${await getText("Darcy.py")}</code></pre>`,
+
+    "Heat.py" :  `<pre><code>${await getText("Heat.py")}</code></pre>`,
+
+    "LU_Decomp.py" :  `<pre><code>${await getText("LU_Decomp.py")}</code></pre>`,
+
+    "RK.py" :  `<pre><code>${await getText("RK.py")}</code></pre>`,
 
     "about.note" : "Copyright ©2025 Joon Heo",
 
@@ -72,10 +85,10 @@ export const files = {
         </ul>
     `,
 
-    "gatsby.note" : `<pre>${await getText("gatsby", "txt")}</pre>`,
+    "gatsby.note" : `<pre>${await getText("gatsby.txt")}</pre>`,
 
     "trojan.exe" : `
-        <div style="height: 100%; width: 100%; color: #fffa; font-family: 'windows', sans-serif; background-color: black; padding: 2px;">
+        <div class="cmd-window">
         █
         </div>
     `

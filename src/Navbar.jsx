@@ -1,6 +1,6 @@
 export default function Navbar({onGoBack, onGoForward, onGoUp, backDisabled, forwardDisabled, upDisabled}) {
     return (
-        <section className="explorer-controls-row explorer-navbar">
+        <section className="window-controls-row explorer-navbar">
             <div className="tactile-bump">&nbsp;</div>
             <button className="explorer-nav-button back-button" onClick={onGoBack} disabled={backDisabled} aria-label="back button">
                 <div className="explorer-nav-button-inner">

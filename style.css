@@ -60,7 +60,11 @@ h3 {
 	margin: 15px 0px 0px;
 }
 
-code {
+pre {
+	margin: 0px;
+}
+
+p > code {
 	background-color: #eee;
 	border: solid 1px;
 	border-color: #aaa;
@@ -427,6 +431,87 @@ iframe {
 /*#endregion */
 
 
+/*#region All windows */
+
+.window-controls-container {
+	background-color: var(--panel-main-col);
+	border-style: solid;
+	border-width: 1.5px;
+	border-bottom-color: white;
+	border-right-color: white;
+	border-top-color: var(--panel-bottom-bevel-light);
+	border-left-color: var(--panel-bottom-bevel-light);
+}
+
+.window-controls-row {
+	display: flex;
+	align-items: center;
+	padding: 3px;
+
+	border-style: solid;
+	border-width: 1.5px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-bottom-bevel-light);
+	border-bottom-color: var(--panel-bottom-bevel-light);
+}
+
+.window-spacer {
+	background-color: var(--panel-main-col);
+	height: 8px;
+}
+
+a.raised-button {
+	color: black;
+	font-family: "windows", 'Times New Roman', Times, serif;
+	font-size: 15px;
+	text-decoration: none;
+
+	height: 30px;
+	width: 80px;
+	padding: 0px;
+	margin-left: 5px;
+	border: solid 1.5px;
+	border-top-color: white;
+	border-left-color: white;
+	border-right-color: var(--panel-bottom-bevel-light);
+	border-bottom-color: var(--panel-bottom-bevel-light);
+}
+
+.raised-button-inner {
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+a.disabled {
+	color: var(--panel-bottom-bevel-dark);
+	text-shadow: 1.2px 1.2px 0 white;
+}
+
+.raised-button:not([disabled]):active {
+	border: solid 1px;
+	border-top-color: black;
+	border-left-color: black;
+	border-right-color: white;
+	border-bottom-color: white;
+}
+
+.raised-button:not([disabled]):active > .raised-button-inner {
+	border: solid 1px;
+	border-top-color: var(--panel-bottom-bevel-light);
+	border-left-color: var(--panel-bottom-bevel-light);
+	border-right-color: var(--panel-top-bevel);
+	border-bottom-color: var(--panel-top-bevel);
+}
+
+/*#endregion */
+
+
+
 
 /*#region Projects Viewer */
 
@@ -443,27 +528,6 @@ iframe {
 	image-rendering: pixelated;
 }
 
-.explorer-controls-container {
-	border-style: solid;
-	border-width: 1.5px;
-	border-bottom-color: white;
-	border-right-color: white;
-	border-top-color: var(--panel-bottom-bevel-light);
-	border-left-color: var(--panel-bottom-bevel-light);
-}
-
-.explorer-controls-row {
-	display: flex;
-	align-items: center;
-	padding: 3px;
-
-	border-style: solid;
-	border-width: 1.5px;
-	border-top-color: white;
-	border-left-color: white;
-	border-right-color: var(--panel-bottom-bevel-light);
-	border-bottom-color: var(--panel-bottom-bevel-light);
-}
 
 .tactile-bump {
 	margin-right: 5px;
@@ -475,7 +539,7 @@ iframe {
 	border-top-color: white;
 	border-left-color: white;
 	border-right-color: var(--panel-bottom-bevel-light);
-	border-bottom-color: var(--panel-bottom-bevel-light)
+	border-bottom-color: var(--panel-bottom-bevel-light);
 }
 
 /* Menubar -------------------------------------*/
@@ -533,8 +597,8 @@ iframe {
 	border: solid 1.5px;
 	border-top-color: white;
 	border-left-color: white;
-	border-right-color: var(--panel-bottom-bevel-light);;
-	border-bottom-color: var(--panel-bottom-bevel-light);;
+	border-right-color: var(--panel-bottom-bevel-light);
+	border-bottom-color: var(--panel-bottom-bevel-light);
 }
 
 .explorer-nav-button:not([disabled]):active {
@@ -625,11 +689,6 @@ iframe {
 }
 
 
-/*---------------*/
-.explorer-spacer {
-	height: 8px;
-}
-/*---------------*/
 
 
 /* Explorer viewport -------------------------------------*/
@@ -735,7 +794,7 @@ iframe {
 
 .explorer-item-spacer {
 	height: 110px;
-	width: 90px;
+	width: 92px;
 	margin: 2px 6px;
 }
 
@@ -827,6 +886,15 @@ iframe {
 	to {
 		transform: translateY( 1050px );
 	}
+}
+
+.cmd-window {
+	height: 100%;
+	width: 100%;
+	color: #f9f9f9;
+	font-family: 'windows', sans-serif;
+	background-color: black;
+	padding: 2px;
 }
 
 /*#endregion */
