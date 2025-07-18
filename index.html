@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <title>The Evil Machinations of Joon Heo</title>
     <meta name="The portfolio site of Joon Heo. Programmer and artist. Most definitely not a chicken.">
-    <script type="module" src="/src/index.jsx" defer></script>
     <script
 			  src="https://code.jquery.com/jquery-3.7.1.min.js"
 			  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -16,10 +15,12 @@
 			  integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI="
 			  crossorigin="anonymous"
         async=false defer ></script>
-    <script src="/on_window_resize.js" type="module" defer></script>
-    <script src="/interactive_controls.js" type="module" defer></script>
-    <script src="/windows.js" type="module" defer></script>
-    <script src="/footer.js" type="module" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/dark.min.css">
+    <script src="/src/index.jsx"            type="module" defer></script>
+    <script src="/on_window_resize.js"      type="module" defer></script>
+    <script src="/interactive_controls.js"  type="module" defer></script>
+    <script src="/windows.js"               type="module" defer></script>
+    <script src="/footer.js"                type="module" defer></script>
     <link rel="stylesheet" href="/style.css" />
 	  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
   </head>
@@ -129,7 +130,7 @@
             <div class="panel-header-info">
               <img class="panel-icon" src="/images/photo.ico" height="18px">
               <div>
-                Image Viewer
+                Image Viewer - [joon.jpg]
               </div>
             </div>
             <div class="panel-header-x">✖</div>
