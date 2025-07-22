@@ -35,6 +35,7 @@ body {
 	width: 100%;
 	margin: 0px;
 	background-color: transparent;
+	overflow-x: hidden;
 }
 
 .center {
@@ -56,15 +57,24 @@ u {
 	text-decoration: solid underline 1.2px;
 }
 
-h3 {
+h3, h4, h5 {
 	margin: 15px 0px 0px;
+}
+
+.req-table {
+	margin: 2px 0px;
+}
+
+.req-table > tbody > tr > td {
+	margin: 0px;
+	vertical-align: top;
 }
 
 pre {
 	margin: 0px;
 }
 
-p > code {
+code {
 	background-color: #eee;
 	border: solid 1px;
 	border-color: #aaa;
@@ -72,6 +82,10 @@ p > code {
     padding: 1px 5px;
 	margin: 0px 1px;
     white-space: nowrap;
+}
+
+pre > code {
+	all: unset;
 }
 
 iframe {

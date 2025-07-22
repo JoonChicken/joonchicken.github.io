@@ -1,7 +1,26 @@
+async function getRaw(filename) {
+    let realFilename = filename.split(".");
+    realFilename.pop();
+    realFilename.push("html");
+    realFilename = realFilename.join(".");
+    const resp = await fetch(`/window_content/${realFilename}`);
+    return await resp.text();
+}
+
 async function getText(filename) {
+    let realFilename = filename.split(".");
+    realFilename.pop();
+    realFilename.push("txt");
+    realFilename = realFilename.join(".");
+    const resp = await fetch(`/window_content/${realFilename}`);
+    const text = await resp.text();
+    return `<pre>${text}</pre>`;
+}
+
+async function getCode(filename) {
     const resp = await fetch(`/window_content/${filename}`);
-    let text = await resp.text();
-    return text;
+    const text = await resp.text();
+    return `<pre><code>${text}</code></pre>`;
 }
 
 export const files = {
@@ -10,17 +29,17 @@ export const files = {
 
     "real.jpg" : `<img src="/images/real.png" style="width: auto; height: 100%" />`,
 
-    "math_algorithms.note" : `${await getText("math_algorithms.html")}`,
+    "math_algorithms.note" : getRaw,
 
-    "joonchicken.github.io.note" : `${await getText("joonchicken.github.io.html")}`,
+    "joonchicken.github.io.note" : getRaw,
 
-    "Darcy.py" :  `<pre><code>${await getText("Darcy.py")}</code></pre>`,
+    "Darcy.py" : getCode,
 
-    "Heat.py" :  `<pre><code>${await getText("Heat.py")}</code></pre>`,
+    "Heat.py" : getCode,
 
-    "LU_Decomp.py" :  `<pre><code>${await getText("LU_Decomp.py")}</code></pre>`,
+    "LU_Decomp.py" : getCode,
 
-    "RK.py" :  `<pre><code>${await getText("RK.py")}</code></pre>`,
+    "RK.py" : getCode,
 
     "about.note" : "Copyright ©2025 Joon Heo",
 
@@ -85,7 +104,21 @@ export const files = {
         </ul>
     `,
 
-    "gatsby.note" : `<pre>${await getText("gatsby.txt")}</pre>`,
+    "under_pressure.note" : `<pre>
+   |                                         ______
+p  |                                        |      |
+r  |                              __________|      |
+e  |                             |          |      |
+s  |              _______________|          |      |
+s  |         ____|               |          |      |
+u  |        |    |               |          |      |
+r  |        |    |               |          |      |
+e  |________|    |               |          |      |
+   |________|____|_______________|__________|______|____
+   0        9    14              30         41     48
+                distance along tube</pre>`,
+
+    "gatsby.note" : getText,
 
     "trojan.exe" : `
         <div class="cmd-window">

@@ -37,7 +37,7 @@ export default function App() {
         const pathOfSelected = [...path];
         pathOfSelected.push(e.currentTarget.querySelector("p").innerText);
         const selectedNode = findNodeWithPath(pathOfSelected)
-        if (selectedNode.type === "folder" || selectedNode.type === "drive") {
+        if (selectedNode.type === "folder" || selectedNode.type === "drive" || selectedNode.type === "gibberish") {
             backtrackHistory.current = [];
             history.current.push(path);
             setPath(pathOfSelected);

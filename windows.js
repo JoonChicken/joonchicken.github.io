@@ -64,12 +64,12 @@ addEventListener("load", () => {
         "note": "Note Viewer",
         "jpg" : "Image Viewer",
         "exe" : "Command Prompt",
-        "py" : "Note++"
+        "py" : "Pythonny"
     };
 
     const window_sizes = { // width, height
         "note": [540, 500],
-        "jpg": [800, 600],
+        "jpg": [750, 600],
         "exe" : [600, 400],
         "py": [700, 600]
     }
@@ -79,7 +79,7 @@ export async function create_window(filename) {
     const type = filenameArray[filenameArray.length - 1];
 
     let cursorChanger = $(`<div></div>`, {
-        id: "c-div",
+        id: "cursor-changer",
         style : `z-index: 999999; position: fixed; cursor: wait; height: 100%; width: 100%; opacity: 0%;`
     });
     $("body").prepend(cursorChanger);
@@ -118,7 +118,7 @@ export async function create_window(filename) {
                     <div class="content-panel-body doScroll"
                         ${type === "jpg" ? `style="display: flex; justify-content: center; background-color: black"` : ""}
                         ${type === "note" ? `style="padding: 10px; height: 100%"` : ""}>
-                            ${files[filename]}
+                            ${files[filename][Symbol.toStringTag] === 'AsyncFunction' ? await files[filename](filename) : files[filename]}
                     </div>
                 </div>
             </div>
@@ -144,8 +144,9 @@ export async function create_window(filename) {
     newWindow.attr("id", "");
     windows.push(window[0]);
     layer_windows();
-    $("#c-div").remove();
+    $("#cursor-changer").remove();
     hljs.highlightAll();
+    return newWindow;
 }
 
 // =====  trojan easter egg  =====
