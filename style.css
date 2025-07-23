@@ -1046,3 +1046,26 @@ a.disabled {
 }
 
 /*#endregion */
+
+
+/*#region PDFs List */
+
+.pdf-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+
+a.pdf-button {
+	margin: 2px;
+}
+
+
+
+a.pdf-button:before {
+	content: url("/images/icons/pdf_icon.png");
+	margin-right: 2px;
+}
+
+/*#endregion */
