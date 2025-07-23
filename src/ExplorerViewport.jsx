@@ -8,20 +8,20 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
     var itemsList = currentDir.children;
 
     const imgURLs = {
-        folder: "/images/explorer_folder.png",
-        folder_selected: "/images/explorer_folder_selected.png",
-        gibberish: "/images/explorer_folder.png",
-        gibberish_selected: "/images/explorer_folder_selected.png",
-        trojan: "/images/explorer_folder.png",
-        trojan_selected: "/images/explorer_folder_selected.png",
-        note: "/images/note_icon.png",
-        note_selected: "/images/note_icon_selected.png",
-        jpg: "/images/photo.ico",
-        jpg_selected: "/images/photo.ico",
-        python: "/images/python.png",
-        python_selected : "/images/python_selected.png",
-        drive: "/images/hard_disk_large.png",
-        drive_selected: "/images/hard_disk_large_selected.png"
+        folder: "/images/icons/explorer_folder.png",
+        folder_selected: "/images/icons/explorer_folder_selected.png",
+        gibberish: "/images/icons/explorer_folder.png",
+        gibberish_selected: "/images/icons/explorer_folder_selected.png",
+        trojan: "/images/icons/explorer_folder.png",
+        trojan_selected: "/images/icons/explorer_folder_selected.png",
+        note: "/images/icons/note_icon.png",
+        note_selected: "/images/icons/note_icon_selected.png",
+        jpg: "/images/icons/photo.ico",
+        jpg_selected: "/images/icons/photo.ico",
+        python: "/images/icons/python.png",
+        python_selected : "/images/icons/python_selected.png",
+        drive: "/images/icons/hard_disk_large.png",
+        drive_selected: "/images/icons/hard_disk_large_selected.png"
     }
 
     const itemDesc = {

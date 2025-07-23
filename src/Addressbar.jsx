@@ -15,7 +15,7 @@ export default function Addressbar({path, onAddressbarChanged}) {
             <span>Address</span>
             <div className="path-container">
                 <div className="path-container-inner">
-                    <img className="hard-disk-icon" src="/images/hard_disk.png"/>
+                    <img className="hard-disk-icon" src="/images/icons/hard_disk.png"/>
                     <input type="text" className="path" value={pathStr} readOnly />
                 </div>
             </div>
