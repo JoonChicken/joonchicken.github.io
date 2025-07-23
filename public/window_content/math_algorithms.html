@@ -1,15 +1,85 @@
 <!DOCTYPE html>
-<head><link rel="stylesheet" href="../../style.css" /></head>
-<div style="border: solid 1px; border-color: black; padding: 10px; width: 530px; height: 500px;">
     <div class="project-description">
         <h1>Math algorithms</h1>
         <p>Fall 2023 - Spring 2024<br/>
-            <em>Last updated 7/18/25</em>
+            <em>Last updated 7/21/25</em>
         </p>
         <br />
         <p>
-            
+            This is a collection of small Python programs I wrote for my multivariable calculus/linear algebra class in senior year of high school (which also covered parts of differential equations, something that its name fails to imply). Each program either calculates an approximate solution to a problem or provides an exact solution using a more time-consuming algorithm.
         </p>
+        <p>
+            Unfortunately, I couldn't find a way to run Python code in the browser unless I transpile the files to Wasm, which seems unnecessary and likely to break numpy and matplotlib, so someday I might work on setting up Python on the Github Pages server—although I don't think Github will allow me to do that because that seems terrible for security, so maybe one day I'll get my own domain and figure out how Python sandboxing works to bring you runnable Python code on my website.
+        </p>
+        <p>
+            For now, enjoy these delectable morsels of Python by clicking "Download" on the top left corner of the pop-up window.
+        </p>
+        <p>
+            <em>Some files have been edited slightly to improve readability. They have otherwise not been modified and are presented exactly as I wrote them in 2023-24.</em>
+        </p>
+        <h2>Programs</h2>
+        <ul>
+            <li>
+                <h3>Darcy.py</h3>
+                Using <a href="https://wikipedia.org/wiki/Darcy's_law" target="_blank">Darcy's Law</a>, this program simulates a fluid flowing through consecutive sections of porous media in a single tube with a uniform cross section and outputs the steady state pressure at each section.<br />
+                Pressure may or may not be uniform throughout each section, but I don't think it is so I've kept the output as a line graph.
+
+                <h4>Params:</h4>
+<pre>
+area .............. cross-sectional area of the tube
+segmentLengths .... array w/ lengths of each segment
+k ................. array w/ permeability of each segment
+mu ................ array w/ dynamic viscosity of fluid in
+                    each segment
+p_0 ............... pressure constraint on left end of tube
+p_n ............... pressure constraint on right end of tube
+</pre> <br />
+            </li>
+            <li>
+                <h3>Heat.py</h3>
+                This program simulates the transfer of heat along a conductive rod by numerically solving the <a href="https://wikipedia.org/wiki/Heat_equation" target="_blank">Heat equation</a> with the forward finite difference method and outputs an animated graph of heat transfer in action over the length of the rod.
+
+                <h4>Params:</h4>
+<pre>
+length ............ length of the rod
+k ................. conductivity of the rod
+temp_left ......... temperature constraint on left end of rod
+temp_right ........ temperature constraint on right end of rod
+total_time ........ number of time steps to run the simulation
+                    for 
+dx = 0.9 .......... size of subdivision of the rod
+dt = 0.19 ......... size of time step
+</pre> <br />
+            </li>
+            <li>
+                <h3>LU_Decomp.py</h3>
+                This program presents a computationally efficient method of calculating the determinant of a matrix by first factoring it into two triangular matricies using <a href="https://wikipedia.org/wiki/LU_decomposition" target="_blank">Lower-Upper Decomposition</a> (more specifically <a href="https://wikipedia.org/wiki/LU_decomposition#LU_factorization_with_partial_pivoting" target="_blank">LU factorization with partial pivoting</a>), then multiplying together all the elements in the main diagonal of the resulting upper triangular matrix to calculate the determinant of the original matrix.
+
+                <h4>Params: <em>accepted from console input</em></h4>
+<pre>
+number of rows
+number of columns
+elements in the matrix
+</pre> <br />
+            </li>
+            <li>
+                <h3>RK.py</h3>
+                This program efficiently and accurately approximates a given differential equation with a <a href="https://wikipedia.org/wiki/Runge%E2%80%93Kutta_methods" target="_blank">Runge-Kutta method</a> specified by a Butcher Tableau. A sample function and its derivative are provided for easy comparison.
+
+                <h4>Params:</h4>
+<pre>
+xi ................ x initial; where the algorithm starts the
+                    approximation
+xf ................ x final; where the algorithm ends the
+                    approximation
+yi ................ y initial; since diffeqs describe a family
+                    of functions, this y-value chooses one
+dx ................ size of step in x
+Tab ............... the <a href="https://wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods" target="_blank">Butcher tableau</a> to use in this
+                    approximation (includes RK4, RK3, RK38,
+                    Euler, ImplicitEuler)
+</pre>
+            </li>
+        </ul>
     </div>
-</div>
 </html>

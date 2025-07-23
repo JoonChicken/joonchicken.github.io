@@ -14,16 +14,19 @@ from matplotlib import pyplot
 ##### Manual inputs of initial values #####
 
 length = 9
-k = 1/500
-temp_left = 0
-temp_right = 24161/60
+k = 1/25
+temp_left = -200
+temp_right = 1000
 
-total_time = 11.4
+total_time = 150
 
 dx = 0.9
-x_vec = numpy.linspace(0, length, int(length/dx))
-
 dt = 0.19
+
+###########################################
+
+
+x_vec = numpy.linspace(0, length, int(length/dx))
 t_vec = numpy.linspace(0, total_time, int(total_time/dt))
 
 u = numpy.zeros([len(t_vec), len(x_vec)])
@@ -33,7 +36,7 @@ u = numpy.zeros([len(t_vec), len(x_vec)])
 
 index = 0
 for x in x_vec:
-    u[:, index] = (-54 * x * x + 24647 * x) / 540
+    u[:, index] = 0
     index += 1
 
 u[:, 0] = temp_left
@@ -48,7 +51,7 @@ for t in range(1, len(t_vec)-1):
                                         u[t, x-1]) + u[t, x]
 
     pyplot.plot(x_vec, u[t], 'black')
-    pyplot.pause(.001)
+    pyplot.pause(.0001)
     pyplot.cla()
 
 

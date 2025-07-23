@@ -11,7 +11,7 @@ def lud(A, ROWS, COLUMNS):
         print("Error: Matrix not square.")
         return "Not Found"
 
-    det = 1 # Initialize determinant
+    det = 1
 
     for i in range(COLUMNS - 1):
         pivotValue = A[i][i] # New pivot

@@ -10,8 +10,8 @@ from numpy import *
 
 
 #####################################
-#    Tableaus                       #
-#####################################         cursed nested dict
+#    Tableaus (Tableaux???)         #
+#####################################
 def pickTab(tabName):
     tabList = dict(
         RK4 = dict(A = [[0],
@@ -64,6 +64,10 @@ dx = 0.5                                            #
 #   - ImplicitEuler                                 #
                                                     #
 Tab = pickTab("RK4")                                #
+                                                    #
+# Also choose a Dx (dy/dx) and optionally F(x)      #
+# below in the Setup section                        #
+                                                    #
 #####################################################
 
 
