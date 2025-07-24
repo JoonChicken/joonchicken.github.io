@@ -1020,6 +1020,22 @@ a.disabled {
 /*#endregion*/
 
 
+/*#region Video Gallery */
+
+.videos-container {
+	width: 100%;
+	overflow: scroll;
+}
+
+.video-scroller {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/*#endregion */
+
+
 /*#region Art Gallery */
 
 .gallery-container {
