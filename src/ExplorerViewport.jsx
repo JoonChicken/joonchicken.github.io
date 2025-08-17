@@ -86,7 +86,7 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
                         <img className="file-icon" src={imgURLs[currentDir.type]}/>
                         <h2>{dirname}</h2>
                         <img className="bar" src="/images/explorer_description_bar.png" />
-                        <h3>{selectedItemName}</h3>
+                        <h3 aria-hidden={selectedItemName === ""}>{selectedItemName}</h3>
                         <p>{selectedItemDesc}</p>
                     </div>
                     <Scrollbar noScrollX

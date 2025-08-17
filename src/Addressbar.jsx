@@ -16,7 +16,7 @@ export default function Addressbar({path, onAddressbarChanged}) {
             <div className="path-container">
                 <div className="path-container-inner">
                     <img className="hard-disk-icon" src="/images/icons/hard_disk.png"/>
-                    <input type="text" className="path" value={pathStr} readOnly />
+                    <input aria-label="working directory" type="text" className="path" value={pathStr} readOnly />
                 </div>
             </div>
         </section>
