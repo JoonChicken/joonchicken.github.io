@@ -107,7 +107,7 @@ export async function create_window(filename) {
                             <a class="raised-button" href="/window_content/${filename}" aria-label="Download this Python file" download>
                                 <div class="raised-button-inner">Download</div>
                             </a>
-                            <a class="raised-button disabled" aria-label="Run this Python file [Disabled]">
+                            <a class="raised-button disabled" disabled aria-label="Run this Python file [Disabled]">
                                 <div class="raised-button-inner">Run</div>
                             </a>
                         </div>

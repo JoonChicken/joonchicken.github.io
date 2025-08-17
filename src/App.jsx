@@ -9,6 +9,7 @@ import ExplorerViewport from "/src/ExplorerViewport";
 
 
 // I wish js had pointers :(
+// all this work for a simple tree
 function findNodeWithPath(pathArray) {
     var folder = file_tree;
     for (var name of pathArray) {

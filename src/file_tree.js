@@ -83,8 +83,7 @@ export default new Node("My Computer", "My Computer", [
         ]),
         new Node("folder", "projects", [
             new Node("folder", "joonchicken.github.io", [
-                new Node("note", "joonchicken.github.io.note", []),
-                new Node("note", "about.note", [])
+                new Node("note", "joonchicken.github.io.note", [])
             ]),
             new Node("folder", "math_algorithms", [
                 new Node("note", "math_algorithms.note", []),
