@@ -54,10 +54,10 @@ addEventListener("load", () => {
 // ===========  Create new windows  ==========================
 
     const window_icons = {
-        "note" : "/images/note_viewer.ico",
-        "jpg" : "/images/photo.ico",
-        "exe" : "/images/console.png",
-        "py" : "/images/python.png"
+        "note" : "/images/icons/note_viewer.ico",
+        "jpg" : "/images/icons/photo.ico",
+        "exe" : "/images/icons/console.png",
+        "py" : "/images/icons/python.png"
     };
 
     const window_title = {
