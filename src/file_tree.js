@@ -91,6 +91,11 @@ export default new Node("My Computer", "My Computer", [
                 new Node("python", "Heat.py", []),
                 new Node("python", "LU_Decomp.py", []),
                 new Node("python", "RK.py", []),
+            ]),
+            new Node("folder", "minecraft server", [
+                new Node("shell", "backup.sh", []),
+                new Node("shell", "start.sh", []),
+                new Node("shell", "stop.sh", [])
             ])
         ]),
         new Node("folder", "temp", [

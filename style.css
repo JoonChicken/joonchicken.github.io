@@ -911,6 +911,16 @@ a.disabled {
 	padding: 2px;
 }
 
+pre.fullheight-code {
+	height: 100%;
+}
+
+
+/* for highlightjs, code highlighting*/
+.hljs {
+	height: 100% !important;
+}
+
 /*#endregion */
 
 

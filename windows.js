@@ -57,21 +57,24 @@ addEventListener("load", () => {
         "note" : "/images/icons/note_viewer.ico",
         "jpg" : "/images/icons/photo.ico",
         "exe" : "/images/icons/console.png",
-        "py" : "/images/icons/python.png"
+        "py" : "/images/icons/python.png",
+        "sh" : "/images/icons/codeicon.ico"
     };
 
     const window_title = {
         "note": "Note Viewer",
         "jpg" : "Image Viewer",
         "exe" : "Command Prompt",
-        "py" : "Pythonny"
+        "py" : "Pythonny",
+        "sh" : "Generic Code Viewer"
     };
 
     const window_sizes = { // width, height
         "note": [540, 500],
         "jpg": [750, 600],
         "exe" : [600, 400],
-        "py": [700, 600]
+        "py": [700, 600],
+        "sh": [700, 600]
     }
 
 export async function create_window(filename) {
@@ -100,14 +103,14 @@ export async function create_window(filename) {
                     </div>
                     <div class="panel-header-x">✖</div>
                 </div>
-                ${type === "py" ? `
+                ${type === "py" || type === "sh" ? `
                     <div class="window-controls-container">
                         <div class="window-controls-row" style="height: 40px;">
                             <div class="tactile-bump">&nbsp;</div>
-                            <a class="raised-button" href="/window_content/${filename}" aria-label="Download this Python file" download>
+                            <a class="raised-button" href="/window_content/${filename}" aria-label="Download this file" download>
                                 <div class="raised-button-inner">Download</div>
                             </a>
-                            <a class="raised-button disabled" disabled aria-label="Run this Python file [Disabled]">
+                            <a class="raised-button disabled" disabled aria-label="Run this file [Disabled]">
                                 <div class="raised-button-inner">Run</div>
                             </a>
                         </div>
