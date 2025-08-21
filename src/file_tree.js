@@ -92,7 +92,9 @@ export default new Node("My Computer", "My Computer", [
                 new Node("python", "LU_Decomp.py", []),
                 new Node("python", "RK.py", []),
             ]),
-            new Node("folder", "minecraft server", [
+            new Node("folder", "minecraft_server", [
+                new Node("note", "minecraft_server.note", []),
+                new Node("makefile", "makefile", []),
                 new Node("shell", "backup.sh", []),
                 new Node("shell", "start.sh", []),
                 new Node("shell", "stop.sh", [])

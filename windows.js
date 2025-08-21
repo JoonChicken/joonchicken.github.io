@@ -7,10 +7,10 @@ hljs.registerLanguage('python', python);
 // get query from URL and spawn the relevant virtual window
 const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
-let window_param = params.get("window");
-console.log(window_param)
-if (window_param != null) {
-    create_window(window_param, 210);
+let name_of_file = params.get("window");
+console.log(name_of_file)
+if (name_of_file != null && files[name_of_file] != null) {
+    create_window(name_of_file, 210);
 }
 
 
@@ -67,7 +67,8 @@ addEventListener("load", () => {
         "jpg" : "/images/icons/photo.ico",
         "exe" : "/images/icons/console.png",
         "py" : "/images/icons/python.png",
-        "sh" : "/images/icons/codeicon.ico"
+        "sh" : "/images/icons/codeicon.ico",
+        "makefile" : "/images/icons/codeicon.ico"
     };
 
     const window_title = {
@@ -75,7 +76,8 @@ addEventListener("load", () => {
         "jpg" : "Image Viewer",
         "exe" : "Command Prompt",
         "py" : "Pythonny",
-        "sh" : "Generic Code Viewer"
+        "sh" : "Generic Code Viewer",
+        "makefile" : "Generic Code Viewer"
     };
 
     const window_sizes = { // width, height
@@ -83,14 +85,15 @@ addEventListener("load", () => {
         "jpg": [750, 600],
         "exe" : [600, 400],
         "py": [700, 600],
-        "sh": [700, 600]
+        "sh": [700, 600],
+        "makefile": [700, 600]
     }
 
 // create new virtual window with the specified filename and an optional top in px
 // (currently only used for spawning from URL params)
 export async function create_window(filename, window_top = -1) {
     const filenameArray = filename.split(".");
-    const type = filenameArray[filenameArray.length - 1];
+    const type = filenameArray.size !== 1 ? filenameArray[filenameArray.length - 1] : filename;
 
     let cursorChanger = $(`<div></div>`, {
         id: "cursor-changer",
@@ -114,7 +117,7 @@ export async function create_window(filename, window_top = -1) {
                     </div>
                     <div class="panel-header-x">✖</div>
                 </div>
-                ${type === "py" || type === "sh" ? `
+                ${type === "py" || type === "sh" || type === "makefile" ? `
                     <div class="window-controls-container">
                         <div class="window-controls-row" style="height: 40px;">
                             <div class="tactile-bump">&nbsp;</div>

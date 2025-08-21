@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <div class="project-description">
+        <h1>Minecraft server</h1>
+        <p>July 2025<br/>
+            <em>Last updated 7/20/25</em>
+        </p>
+        <br />
+        <p>
+            This is a small collection of shell scripts that I use to easily and regularly back up my minecraft server data to Github using the Github CLI.
+        </p>
+        <p>
+            I run the server on a first gen Jetson Nano running in headless mode so that the GUI doesn't eat up two of the pitiful four gigabytes of RAM that it has. I can manually control the server and edit its configs through SSH from within my local network. I found out early on that once I start the server and gain access to the Minecraft server's console, if I get timed out of SSH, I can no longer access the Minecraft console even if I'm logged back in, so I now use tmux to be able to access the same terminal session between SSH logins.
+        </p>
+        <p>
+            This next bit is a long rant. Here goes.<br />
+            In making the Jetson Nano, Nvidia made the bold choice of not including a kernel (it uses a virtual kernel somewhere in memory I think???). This made users reliant on custom Ubuntu-based disk images that are <em>no longer released by Nvidia</em> because they have heartlessly deprecated the first gen Nano when I wasn't paying attention. It turns out the latest version of Minecraft uses Java 21, which is unavailable in Ubuntu 18.04, the latest version for which Nvidia made an image for, so I somehow found a 20.04 image for the Nano online (that probably doesn't have a virus but you never really know), and after so many issues with Balena Etcher (use Rufus and save yourself the trouble; it worked IMMEDIATELY) and two days of troubleshooting, I finally flashed Ubuntu 20.04 to my Nano and ran the server for the first time.<br />
+            A lesson and a warning. Nvidia and Balena are not to be trusted.
+        </p>
+        <p>
+            The scripts are very simple, so honestly there isn't much to explain, but <code>backup.sh</code> does the backup, <code>start.sh</code> starts the server in a new tmux instance by calling the <code>makefile</code>, and <code>stop.sh</code> stops the server and exits the tmux instance after a delay.
+        </p>
+        <p>
+            The aforementioned delay isn't something I'm particularly proud of. I just couldn't find any information about exiting tmux <em>when and only when</em> the process running in it (the Minecraft server) stops. (While thinking about how to explain the problem I've been having I realized I might be able to call another script within tmux and have <em>that</em> script run the server for me, which might solve my problem. I may try to fix it again someday.)
+        </p>
+    </div>
+</html>

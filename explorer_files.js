@@ -28,18 +28,19 @@ export const files = {
     "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
     "real.jpg" : `<img src="/images/real.png" style="width: auto; height: 100%" />`,
 
-    "math_algorithms.note" : getRaw,
-
     "joonchicken.github.io.note" : getRaw,
 
+    "math_algorithms.note" : getRaw,
     "Darcy.py" : getCode,
     "Heat.py" : getCode,
     "LU_Decomp.py" : getCode,
     "RK.py" : getCode,
 
+    "minecraft_server.note" : getRaw,
     "backup.sh" : getCode,
     "start.sh" : getCode,
     "stop.sh" : getCode,
+    "makefile" : getCode,
 
 
     "about.note" : "Copyright ©2025 Joon Heo",
