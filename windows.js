@@ -4,6 +4,15 @@ import python from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/
 
 hljs.registerLanguage('python', python);
 
+// get query from URL and spawn the relevant virtual window
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+let window_param = params.get("window");
+console.log(window_param)
+if (window_param != null) {
+    create_window(window_param, 210);
+}
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -77,7 +86,9 @@ addEventListener("load", () => {
         "sh": [700, 600]
     }
 
-export async function create_window(filename) {
+// create new virtual window with the specified filename and an optional top in px
+// (currently only used for spawning from URL params)
+export async function create_window(filename, window_top = -1) {
     const filenameArray = filename.split(".");
     const type = filenameArray[filenameArray.length - 1];
 
@@ -89,7 +100,7 @@ export async function create_window(filename) {
     await sleep(type !== "jpg" ? 80 : 2000);
     
     const numUntouched = $(".untouched").length;
-    const top = 890 + numUntouched * 20;
+    const top = window_top === -1 ? 890 + numUntouched * 20 : window_top;
     const marginL = -350 + numUntouched * 20;
     const window = $(`
         <div id="new-window" class="content-panel untouched" style="width: ${window_sizes[type][0]}px; height: ${window_sizes[type][1]}px; top: ${top}px; margin-left: ${marginL}px">
