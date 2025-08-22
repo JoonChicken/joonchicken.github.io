@@ -1,9 +1,10 @@
 class Node {
-    constructor(type, name, children) {
+    constructor(type, name, children, meta = "") {
         this.type = type
         this.name = name;
         this.selected = false;
         this.children = children;
+        this.meta = meta;
     }
 }
 
@@ -83,7 +84,8 @@ export default new Node("My Computer", "My Computer", [
         ]),
         new Node("folder", "projects", [
             new Node("folder", "joonchicken.github.io", [
-                new Node("note", "joonchicken.github.io.note", [])
+                new Node("note", "joonchicken.github.io.note", []),
+                new Node("weblink", "Github Repo", [], "https://github.com/JoonChicken/joonchicken.github.io")
             ]),
             new Node("folder", "math_algorithms", [
                 new Node("note", "math_algorithms.note", []),
@@ -97,7 +99,8 @@ export default new Node("My Computer", "My Computer", [
                 new Node("makefile", "makefile", []),
                 new Node("shell", "backup.sh", []),
                 new Node("shell", "start.sh", []),
-                new Node("shell", "stop.sh", [])
+                new Node("shell", "stop.sh", []),
+                new Node("jpg", "jetson.jpg", [])
             ])
         ]),
         new Node("folder", "temp", [

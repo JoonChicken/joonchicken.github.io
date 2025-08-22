@@ -42,6 +42,10 @@ export default function App() {
             backtrackHistory.current = [];
             history.current.push(path);
             setPath(pathOfSelected);
+        } else if (selectedNode.type === "weblink") {
+            if (selectedNode.meta !== "") {
+                window.open(selectedNode.meta, '_blank').focus();
+            }
         } else if (selectedNode.type === "trojan") {
             run_trojan();
         } else {

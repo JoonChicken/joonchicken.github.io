@@ -1,4 +1,4 @@
-import { files } from "/explorer_files.js";
+import { files, window_icons, window_title, window_sizes } from "/explorer_files.js";
 import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/highlight.min.js';
 import python from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/es/languages/python.min.js';
 
@@ -9,10 +9,13 @@ const queryString = window.location.search;
 const params = new URLSearchParams(queryString);
 let name_of_file = params.get("window");
 console.log(name_of_file)
-if (name_of_file != null && files[name_of_file] != null) {
+if (does_file_exists(name_of_file)) {
     create_window(name_of_file, 210);
 }
 
+function does_file_exists(filename) {
+    return name_of_file != null && files[name_of_file] != null;
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -61,33 +64,6 @@ addEventListener("load", () => {
 });
 
 // ===========  Create new windows  ==========================
-
-    const window_icons = {
-        "note" : "/images/icons/note_viewer.ico",
-        "jpg" : "/images/icons/photo.ico",
-        "exe" : "/images/icons/console.png",
-        "py" : "/images/icons/python.png",
-        "sh" : "/images/icons/codeicon.ico",
-        "makefile" : "/images/icons/codeicon.ico"
-    };
-
-    const window_title = {
-        "note": "Note Viewer",
-        "jpg" : "Image Viewer",
-        "exe" : "Command Prompt",
-        "py" : "Pythonny",
-        "sh" : "Generic Code Viewer",
-        "makefile" : "Generic Code Viewer"
-    };
-
-    const window_sizes = { // width, height
-        "note": [540, 500],
-        "jpg": [750, 600],
-        "exe" : [600, 400],
-        "py": [700, 600],
-        "sh": [700, 600],
-        "makefile": [700, 600]
-    }
 
 // create new virtual window with the specified filename and an optional top in px
 // (currently only used for spawning from URL params)

@@ -23,10 +23,45 @@ async function getCode(filename) {
     return `<pre class="fullheight-code"><code>${text}</code></pre>`;
 }
 
+ function getImg(filename) {
+    return `<img src="/images/${filename}" style="width: auto; height: 100%" />`
+}
+
+//////////////////////////////////////////////
+
+export const window_icons = {
+    "note" : "/images/icons/note_viewer.ico",
+    "jpg" : "/images/icons/photo.ico",
+    "exe" : "/images/icons/console.png",
+    "py" : "/images/icons/python.png",
+    "sh" : "/images/icons/codeicon.ico",
+    "makefile" : "/images/icons/codeicon.ico"
+};
+
+export const window_title = {
+    "note": "Note Viewer",
+    "jpg" : "Image Viewer",
+    "exe" : "Command Prompt",
+    "py" : "Pythonny",
+    "sh" : "Generic Code Viewer",
+    "makefile" : "Generic Code Viewer"
+};
+
+export const window_sizes = { // width, height
+    "note": [540, 500],
+    "jpg": [750, 600],
+    "exe" : [600, 400],
+    "py": [700, 600],
+    "sh": [700, 600],
+    "makefile": [700, 600]
+};
+
+////////////////////////////////////////////////////
+
 export const files = {
 
     "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
-    "real.jpg" : `<img src="/images/real.png" style="width: auto; height: 100%" />`,
+    "real.jpg" : getImg("real.jpg"),
 
     "joonchicken.github.io.note" : getRaw,
 
@@ -41,6 +76,7 @@ export const files = {
     "start.sh" : getCode,
     "stop.sh" : getCode,
     "makefile" : getCode,
+    "jetson.jpg" : getImg("jetson.jpg"),
 
 
     "about.note" : "Copyright ©2025 Joon Heo",

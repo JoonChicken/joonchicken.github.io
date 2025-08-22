@@ -10,6 +10,8 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
     const imgURLs = {
         folder: "/images/icons/explorer_folder.png",
         folder_selected: "/images/icons/explorer_folder_selected.png",
+        weblink : "/images/icons/weblink.png",
+        weblink_selected : "/images/icons/weblink_selected.png",
         gibberish: "/images/icons/explorer_folder.png",
         gibberish_selected: "/images/icons/explorer_folder_selected.png",
         trojan: "/images/icons/explorer_folder.png",
@@ -30,6 +32,7 @@ export default function ExplorerViewport({currentDir, onItemDoubleClick}) {
 
     const itemDesc = {
         folder: "File Folder",
+        weblink : "Web Link",
         trojan: "trojan.exe",
         note: "NOTE File",
         drive: "Local Disk",
