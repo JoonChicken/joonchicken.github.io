@@ -12,7 +12,7 @@ if (reducedMotion) {
 }
 const emerge = () => {
     emerged = true;
-    control_wrapper.animate({left: "80"}, emerge_speed);
+    control_wrapper.animate({left: "150"}, emerge_speed);
 
 }
 const collapse = () => {
