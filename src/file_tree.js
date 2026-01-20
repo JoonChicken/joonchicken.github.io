@@ -170,7 +170,7 @@ export default new Node("My Computer", "My Computer", [
                     new Node("note", "under_pressure.note", [])
                 ]),
                 new Node("folder", "Downloads", [
-                    new Node("jpg", "real.jpg", [])
+                    new Node("jpg", "real.png", [])
                 ]),
                 new Node("folder", "Favorites", []),
                 new Node("folder", "Music", [])
