@@ -76,7 +76,7 @@ export async function create_window(filename, window_top = -1) {
         style : `z-index: 999999; position: fixed; cursor: wait; height: 100%; width: 100%; opacity: 0%;`
     });
     $("body").prepend(cursorChanger);
-    await sleep(type !== "jpg" ? 80 : 2000);
+    await sleep(type !== "jpg" ? 80 : 1000);
     
     const numUntouched = $(".untouched").length;
     const top = window_top === -1 ? 890 + numUntouched * 20 : window_top;
