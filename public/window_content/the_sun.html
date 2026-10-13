@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <div class="project-description">
+        <h1>The Sun</h1>
+        <p>December 2025 - June 2026<br/>
+            <em>Last updated 10/13/26</em>
+        </p>
+        <br />
+        <p>After making an L1 personal rocket in freshman year, I joined the Tufts Rocketry team as a member of the avionics subteam in my sophomore year. Although I went in knowing nothing about PCB design and firmware programming, I brought myself up to speed with the generous help of the more experienced members of the team, and by the end of the Fall semester, I was tasked with creating and programming a PCB of my own, which I later named <b>The Sun</b>.
+        </p>
+
+        <p>
+        The Sun was to go inside the payload of our team rocket for that year, named KINDLEVAN. The payload was an experiment designed to find whether altitude has a significant impact on the efficiency of solar panels, and The Sun's job was to gather data on the power output of the four solar panels as well as the air pressure data, so that the efficiency of the solar panels versus the altitude could be found.
+        </p>
+
+        <p>
+        With our payload and rocket finished, we headed to Midland, Texas, in May for the 2026 International Rocket Engineering Competition (IREC). After a 24-hour delay involving dust storms and excessive rain, we launched our rocket. It flew perfectly, its apogee just barely shy of the 10,000 ft goal, and returned safely to the ground to be recovered quickly. We cracked open the payload to take out the SD card, and I uncompressed and read the data to find that... our data collection had stopped after 100 files, just 30 minutes before we had launched, and we had failed to read any data from the barometer.
+        </p>
+
+        <p>What happened?</p>
+
+        <p>
+        The 100-files problem was pretty simple. To communicate to the SD card, we used the esp-idf FSPI library, which requires the SD card to be in the FAT filesystem format. Annoyingly, FAT requires filenames to be at most 11 characters long. To get around any issues with large files and memory corruption, I had decided to make a new file every 30 mintues with an incrementing suffix, leaving room for files 0-99, which I assumed to be sufficient for a 5-minute launch. However, I failed to take into account just how long we'd be delayed for. The night we were delayed, I wanted to clear the files just to be sure to make sure the board had enough files to work with, but the mechanical lead and I agreed it would be too much work to de-integrate the rocket at 10 PM and we all went to bed. This was a bad move. The next morning, the program tried to create file 100 less than an hour before our rocket launched, and failed to do so. We had missed the launch by under an hour.
+        </p>
+
+        <p>
+        To this day, the barometer is something of a mystery. It fails, but only sometimes, and in a non-replicable way, which leads me to believe that it is a hardware issue, either with how strong the solder connection is to the board, or with the innards of the barometer itself. 
+        </p>
+
+        <p>We plan to launch The Sun again sometime in October with fixes implemented, so while we weren't able to get viable data at IREC, we hope to get closure on our experiment.</p>
+
+
+        <h2>Specifications</h2>
+        <ul>
+            <li><b>MCU:</b> ESP32-C3</li>
+            <li><b>Clock:</b> 40MHz, driven by external crystal oscillator</li>
+            <li><b>Flash:</b> 16Mbit external flash memory, communicated with via SPI</li>
+            <li><b>Sensor suite:</b><ul>
+                <li>4x current sensors</li>
+                <li>1x barometer</li>
+                <li>1x IMU</li>
+            </ul></li>
+            <li><b>Power:</b> On-board linear regulator (18V, 1.2A max) steps down voltage to 3.3V</li>
+            <li><b>I/O:</b> USB-C port for communication with MCU, SD card adapter for data logging</li>
+            <li><b>Board:</b> 4-layer PCB, with FR4 dielectric</li>
+            <li><b>Additional Features:</b><ul>
+                <li>Custom silkscreen design on back</li>
+                <li>Debug connectors for Power, GND, I2C and SPI buses</li>
+            </ul></li>
+        </ul>
+
+    </div>
+</html>

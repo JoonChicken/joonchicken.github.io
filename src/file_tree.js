@@ -108,6 +108,13 @@ export default new Node("My Computer", "My Computer", [
                 new Node("shell", "start.sh", []),
                 new Node("shell", "stop.sh", []),
                 new Node("jpg", "jetson.jpg", [])
+            ]),
+            new Node("folder", "the_sun", [
+                new Node("note", "the_sun.note", []),
+                new Node("jpg", "sun_front.jpg", []),
+                new Node("jpg", "sun_back.jpg", []),
+                new Node("jpg", "sun_schematic.jpg", []),
+                new Node("jpg", "sun_pcb.jpg", []),
             ])
         ]),
         new Node("folder", "temp", [

@@ -63,6 +63,8 @@ export const files = {
     "💀.jpg" : `<img src="/images/legbones_compressed.jpg" style="width: auto; height: 100%" />`,
     "real.jpg" : getImg("real.jpg"),
 
+    // Projects:
+
     "joonchicken.github.io.note" : getRaw,
 
     "math_algorithms.note" : getRaw,
@@ -78,6 +80,14 @@ export const files = {
     "makefile" : getCode,
     "jetson.jpg" : getImg("jetson.jpg"),
 
+    "the_sun.note" : getRaw,
+    "sun_front.jpg" : getImg("sun_front.jpg"),
+    "sun_back.jpg" : getImg("sun_back.jpg"),
+    "sun_schematic.jpg" : getImg("sun_schematic.jpg"),
+    "sun_pcb.jpg" : getImg("sun_pcb.jpg"),
+
+
+    // Misc:
 
     "about.note" : "Copyright ©2025 Joon Heo",
 
@@ -85,7 +95,7 @@ export const files = {
 
     "fooled.note" : "",
 
-    "ya.note" : "SSN: 963-50-3233",
+    "ya.note" : ":)",
 
     "temporary.note" : `01d3fca2a598218b3cfa176b4091c600
                         1e8f00f320cd2f1699c272db23dcbdb7
